@@ -27,6 +27,7 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+<<<<<<< HEAD
 
 
 
@@ -36,3 +37,6 @@ Please feel free to use a different markup language if you do not plan to run
 
 
  - Alex Tanner
+=======
+- Samuel Peterson
+>>>>>>> 8a9401c7d437c1e95aef0c01837413865a7cb3ee
