@@ -8,10 +8,7 @@ $ unset GEM_HOME
 $ source /home/user/.rvm/scripts/rvm
 $ rvm install ruby 2.2
 $ rvm use --default 2.2
-$ gem install rails -v 4.2.1 
 $ git clone https://github.com/speterson96/good_at_ruby_Agile2018.git
 $ cd good_at_ruby_Agile2018
-$ bundle install
-$ gem install bundler
 $ bundle install
 ```
