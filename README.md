@@ -7,8 +7,16 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 
 \curl -sSL https://get.rvm.io | bash -s stable
 
+unset GEM_HOME
+
+source /home/user/.rvm/scripts/rvm
+
 rvm install ruby 2.2
 
 rvm use --default 2.2
 
-gem install rails -v-4.2
+gem install rails -v 4.2.1 
+*This takes forever* 
+bundle install
+
+rails generate controller home index about
