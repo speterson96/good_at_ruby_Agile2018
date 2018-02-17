@@ -43,3 +43,7 @@ group :development, :test do
   gem 'spring'
 end
 
+# gems for twitter and google authentication.Found at www.rubygems.org
+gem 'omniauth-twitter', '~> 1.4'
+#gem 'omniauth-google-oauth2', '~> 0.5.3'
+
