@@ -7,8 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="titlebar">
+    
+    <nav>
+      <%=link_to 'Home', root_url %>
+      <%=link_to 'About', about_url %>
+    </nav>
+    
+    <header class="header">
+      <h1>Astroids Game!</h1>
+    </header>
+    
+    <div class="login_bar">
+      
+      <p>Login using social media to compete!</p>
+      <button>Login</button>
+      
+    </div>
+  </div>
+  
+  <div class="main">
+  
+    <%= yield %>
+  
+  </div>
+  
+  <footer>
+    <h4>Copyright <%=Date.today.year %> [Astroids game] Good at Ruby Group</h4>
+  </footer>
+  
 </body>
 </html>
