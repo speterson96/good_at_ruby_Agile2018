@@ -1,0 +1,86 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: black;
+  color: white;
+}
+
+header {
+  width: 25%;
+  float: left;
+  background-color: green;
+  text-align: center;
+}
+
+nav {
+  width: 33%;
+  float: left;
+}
+
+nav a {
+  // I'd like to get the text to be centered vertically.  
+  float: left;
+  color: limegreen;
+  text-align: center;
+  text-decoration: none;
+  height: 80px;
+  padding: 0 10px 0 10px;
+  vertical-align: -50%;
+  
+}
+
+nav a:hover {
+    background: #ddd;
+    color: black;
+}
+
+
+.leaderboard {
+  
+  color: black;
+  border-color: black;
+  border-style: solid;
+  border-color: black;
+  background-color: lightgrey;
+  box-shadow: 1px 1px white;
+  padding: 10px;
+  margin-top: 5px;
+  width: 30em;
+  
+}
+
+.login_bar {
+  
+  color: black;
+  background-color: lightgrey;
+  width: 33%;
+  float: right;
+  overflow: auto;
+  width: 300px;
+  height: 80px;
+  
+}
+
+.login_bar button {
+  float: right;
+}
+
+.login_bar p {
+  display: inline-block;
+}
+
+.main {
+  margin-top: 99px;
+}
+
+.titlebar {
+  background-color: green;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  
+}
