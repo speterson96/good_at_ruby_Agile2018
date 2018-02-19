@@ -5,10 +5,48 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <%= yield %>
+<nav class="navbar navbar-default">
+  <div class="containter-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapse">
+        <span class="icon-bar"></span>
+      </button>
+      <h1><%= link_to root_path do %>OMNIAUTH<% end %></h1>
+    </div>
+    
+    <div class="callapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    
+      <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
+            <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
+          <% else %>
+            <li><%= link_to "auth/twitter" do %><%= image_tag('twitter_icon.png', width: '40', height: '40', class: 'img-circle') %><% end %></li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<%flash.each do |key, value| %>
+  <div class="alert alert-info"><%= value %></div>
+<% end %>
+
+<!--Flash alert lets user know if they are signed in or out. -->
+<% if current_user %>
+  <div class="text-center">
+    <h1>Welcome, <%= current_user.name %></h1>
+    <h4>Logged In with -> <strong><em><%= @auth['provider'].capitalized %></em></strong></h4>
+    <%= image_tage('logo.png')%>
+  </div>
+<% end %>
 
 </body>
 </html>
