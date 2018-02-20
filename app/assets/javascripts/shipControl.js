@@ -13,7 +13,7 @@ var states = {
 
 var graphicAssets = {
     
-    ship:{URL:'assets/theHoff.jpg', name:'ship'},
+    ship:{URL:'/assets/ship.png', name:'ship'},
     
 };
 
