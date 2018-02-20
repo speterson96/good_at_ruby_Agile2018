@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_lives: 1
+  user_bullets: 1
+  user_score: 1
+  user_difficulty: MyString
+
+two:
+  user_lives: 1
+  user_bullets: 1
+  user_score: 1
+  user_difficulty: MyString
