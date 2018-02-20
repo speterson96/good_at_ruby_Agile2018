@@ -1,0 +1,9 @@
+.ship {
+    
+    width: 600px;
+    height: 600px;
+    margin: 50px auto;
+    color: #000;
+    position: relative;
+    
+}
