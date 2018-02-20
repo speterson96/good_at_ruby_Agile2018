@@ -2,10 +2,17 @@
 
   <h2>Leaderboards</h2>
   <h4>Well done to our top contenders!</h4>
-  <ul>
+  <table>
+    <th>Top 10 Scores</th>
+    <tr>
+      <td>name:</td><td>score:<td>
+    </tr>
     <% @scores.limit(10).order('score desc').each do |score| %>
-      <li>Name: <%= score.user.user_name %> Score: <%= score.score %></li>
+      <tr>
+        <td><%= score.user.user_name %></td>
+        <td><%= score.score %></td>
+      </tr>
     <% end %> 
-  </ul>
+  </table>
 
 </div>
