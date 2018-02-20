@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-
+  resources :users
+  resources :scores
   root 'home#index'
 
   get 'home/profile'
-
+  get "/scores", controller: 'scores', action: 'index'
   get 'auth/:provider/callback', to: "sessions#create"
   delete 'sign_out', to: "sessions#destroy", as: "sign_out"
   
