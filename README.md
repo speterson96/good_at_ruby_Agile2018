@@ -10,10 +10,12 @@ $ rvm install ruby 2.2
 $ rvm use --default 2.2
 $ gem install rails -v 4.2.1 
 $ bundle install
-```
+
 
 ffi errors
 $ sudo apt-get update
 $ sudo apt-get install libffi-dev
 $ bundle
 $ bin/rake db:migrate RAILS_ENV=development
+
+```
