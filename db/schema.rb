@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220005340) do
+ActiveRecord::Schema.define(version: 20180220003619) do
 
   create_table "providers", force: :cascade do |t|
     t.string   "name"
@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(version: 20180220005340) do
     t.integer  "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "users_id"
   end
+
+  add_index "scores", ["users_id"], name: "index_scores_on_users_id"
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"

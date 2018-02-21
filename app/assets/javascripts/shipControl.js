@@ -1,3 +1,4 @@
+
 var gameProperties = {
     
     screenWidth: 640,
@@ -142,6 +143,7 @@ gameState.prototype = {
     
 };
 
-var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, 'gameDiv');
+var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, '#gameDiv');
 game.state.add(states.game, gameState);
 game.state.start(states.game);
+
