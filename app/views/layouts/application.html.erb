@@ -10,12 +10,8 @@
 </head>
 
 <body>
-<div class="fadein" id="test">
-  <%= image_tag("bg1.jpg") %>
-  <%= image_tag("bg2.jpg") %>
-  <%= image_tag("bg3.jpg") %>
-  <%= image_tag("bg4.jpg") %>
-</div>
+
+  <%= render "shared/backgroundImage" %>
 
   <nav class="navbar fixed-top navbar-inverse bg-inverse">
     <div class="containter-fluid">
@@ -27,10 +23,11 @@
       
       <div class="callapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-           <%=link_to 'Home', root_url %>    
-           <%=link_to 'About', about_url %>
-           <%=link_to 'Top Ten', :controller => :scores, :action => :index %>
-           <%= link_to root_path do %>OMNIAUTH<% end %>
+          <%=link_to 'Home', root_url %>    
+          <%=link_to 'About', about_url %>
+          <%=link_to 'Top Ten', :controller => :scores, :action => :index %>
+          <%= link_to root_path do %>OMNIAUTH<% end %>
+           
           <% if current_user %>
             <li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
             <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
@@ -61,11 +58,11 @@
     
   <div class="main">
     <%= yield %>  
+    
+    
   </div>
   
-  <footer>
-    <h4>Copyright <%=Date.today.year %> [Astroids game] Good at Ruby Group</h4>
-  </footer>
+  <%= render "shared/footer" %>
   
 </body>
 </html>
