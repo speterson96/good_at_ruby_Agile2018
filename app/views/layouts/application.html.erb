@@ -34,7 +34,7 @@
             <li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
             <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
           <% else %>
-            <li><%= link_to "auth/twitter" do %><%= image_tag('twitter_icon.png', width: '40', height: '40', class: 'img-circle') %><% end %></li>
+            <li><%= link_to "auth/twitter" do %><%= image_tag('twitter_icon.png', width: '40', height: '40') %><% end %></li>
           <% end %>
         </ul>
       </div>
