@@ -28,6 +28,7 @@
         <ul class="nav navbar-nav navbar-right">
            <%=link_to 'Home', root_url %>    
            <%=link_to 'About', about_url %>
+           <%=link_to 'Top Ten', :controller => :scores, :action => :index %>
            <%= link_to root_path do %>OMNIAUTH<% end %>
           <% if current_user %>
             <li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
