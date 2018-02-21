@@ -2,25 +2,33 @@
 <html>
 <head>
   <title>GoodAtRubyAgile2018</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
 <body>
+<div class="fadein" id="test">
+  <%= image_tag("bg1.jpg") %>
+  <%= image_tag("bg2.jpg") %>
+  <%= image_tag("bg3.jpg") %>
+  <%= image_tag("bg4.jpg") %>
+</div>
+
   <nav class="navbar navbar-default">
-    <%=link_to 'Home', root_url %>    
-    <%=link_to 'About', about_url %>
     <div class="containter-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapse">
           <span class="icon-bar"></span>
-        </button>
-        <h1><%= link_to root_path do %>OMNIAUTH<% end %></h1>
+        </button>   
       </div>
+      
       <div class="callapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+           <%=link_to 'Home', root_url %>    
+           <%=link_to 'About', about_url %>
+           <%= link_to root_path do %>OMNIAUTH<% end %>
           <% if current_user %>
             <li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
             <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
