@@ -10,5 +10,10 @@ class HomeControllerTest < ActionController::TestCase
     get :about
     assert_response :success
   end
+  
+  test "should get game" do
+    get :game
+    assert_response :success
+  end
 
 end
