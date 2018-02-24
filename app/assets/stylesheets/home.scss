@@ -25,13 +25,14 @@ nav a {
   text-align: center;
   text-decoration: none;
   height: 1%;
-  padding: 0 10px 0 10px;
+  padding: 20px;
   font-size: 2em;
 }
 
 nav a:hover {
     background: #ddd;
     color: black;
+    padding: 20px 20px 23px 20px;
 }
 
 
@@ -47,12 +48,18 @@ nav a:hover {
   width: 30em;
 }
 
+.omniauth a:hover {
+  
+  padding-bottom: 12px;
+  
+}
+
 .header {
   display: block;
   margin: auto;
   width: 50%;
   position: relative;
-  top: 60px;
+  top: 59px;
 }
 
 .navbar {
@@ -74,11 +81,12 @@ nav a:hover {
 
 .navbar ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 
 .main {
-  border: 1px solid white;
   width:100%;
   margin:auto;
 }

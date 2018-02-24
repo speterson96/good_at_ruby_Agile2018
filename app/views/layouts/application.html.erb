@@ -18,13 +18,13 @@
       <li><%=link_to 'Game', game_url %></li>
       <li><%=link_to 'About', about_url %></li>
       <li><%=link_to 'Top Ten', :controller => :scores, :action => :index %></li>
-      <li><%= link_to root_path do %>OMNIAUTH<% end %></li>
+      <li ><%= link_to root_path do %>OMNIAUTH<% end %></li>
        
       <% if current_user %>
-        <li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
+        <li class="omniauth">Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
         <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
       <% else %>
-        <li><%= link_to "auth/twitter" do %><%= image_tag('twitter_icon.png', width: '40', height: '40', class: 'img-circle') %><% end %></li>
+        <li class="omniauth"><%= link_to "auth/twitter" do %><%= image_tag('twitter_icon.png', width: '40', height: '40', class: 'img-circle') %><% end %></li>
       <% end %>
     </ul>
   </nav>
