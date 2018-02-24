@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/game'
+
   resources :users
   resources :scores
   root 'home#index'
@@ -9,6 +11,9 @@ Rails.application.routes.draw do
   delete 'sign_out', to: "sessions#destroy", as: "sign_out"
   
   get '/about', to: 'home#about', as: 'about'
+  
+  get '/game', to: 'home#game', as: 'game'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

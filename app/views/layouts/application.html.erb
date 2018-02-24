@@ -4,42 +4,33 @@
   <title>GoodAtRubyAgile2018</title>
   <%= csrf_meta_tags %>
   
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
-<body>
-<div class="fadein" id="test">
-  <%= image_tag("bg1.jpg") %>
-  <%= image_tag("bg2.jpg") %>
-  <%= image_tag("bg3.jpg") %>
-  <%= image_tag("bg4.jpg") %>
-</div>
 
-  <nav class="navbar navbar-default">
-    <div class="containter-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapse">
-          <span class="icon-bar"></span>
-        </button>   
-      </div>
-      
-      <div class="callapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-           <%=link_to 'Home', root_url %>    
-           <%=link_to 'About', about_url %>
-           <%=link_to 'Top Ten', :controller => :scores, :action => :index %>
-           <%= link_to root_path do %>OMNIAUTH<% end %>
-          <% if current_user %>
-            <li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
-            <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
-          <% else %>
-            <li><%= link_to "auth/twitter" do %><%= image_tag('twitter_icon.png', width: '40', height: '40') %><% end %></li>
-          <% end %>
-        </ul>
-      </div>
-   </div>
+<body>
+
+  <nav  class="navbar">
+    <ul class="navul">
+      <li><%=link_to 'Home', root_url %></li>
+      <li><%=link_to 'Game', game_url %></li>
+      <li><%=link_to 'About', about_url %></li>
+      <li><%=link_to 'Top Ten', :controller => :scores, :action => :index %></li>
+      <li ><%= link_to root_path do %>OMNIAUTH<% end %></li>
+       
+      <% if current_user %>
+        <li class="omniauth">Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
+        <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
+      <% else %>
+        <li class="omniauth"><%= link_to "auth/twitter" do %><%= image_tag('twitter_icon.png', width: '40', height: '40', class: 'img-circle') %><% end %></li>
+      <% end %>
+    </ul>
   </nav>
+  
+  <header class="header">
+      <h1>Astroids Game!</h1>
+  </header>
+  
 
 <%flash.each do |key, value| %>
   <div class="alert alert-info"><%= value %></div>
@@ -54,17 +45,16 @@
   </div>
 <% end %>
 
-  <header class="header">
-      <h1>Astroids Game!</h1>
-    </header>
+ 
     
+  <%= render "shared/backgroundImage" %>
   <div class="main">
     <%= yield %>  
+    
+    
   </div>
   
-  <footer>
-    <h4>Copyright <%=Date.today.year %> [Astroids game] Good at Ruby Group</h4>
-  </footer>
+  <%= render "shared/footer" %>
   
 </body>
 </html>

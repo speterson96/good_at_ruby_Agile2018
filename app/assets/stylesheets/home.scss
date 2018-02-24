@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 body {
   background-color: black;
   color: white;
@@ -13,11 +14,9 @@ header {
   text-align: center;
 }
 
-nav {
-  width: 33%;
-  height: 5%;
-  max-height:5%;
-  min-height:5%;
+footer {
+  bottom: 0;
+  position: fixed;
 }
 
 nav a {
@@ -25,19 +24,20 @@ nav a {
   color: limegreen;
   text-align: center;
   text-decoration: none;
-  height: 1%;
-  padding: 0 10px 0 10px;
+  padding: 20px 20px 23px 20px;
   font-size: 2em;
+  margin: auto;
 }
 
 nav a:hover {
     background: #ddd;
     color: black;
+    padding: 20px 20px 23px 20px;
+    margin: auto;
 }
 
 
 .leaderboard {
-  
   color: black;
   border-color: black;
   border-style: solid;
@@ -47,43 +47,59 @@ nav a:hover {
   padding: 10px;
   margin-top: 5px;
   width: 30em;
+}
+
+.omniauth  {
+  float: right;
+}
+
+.omniauth a:hover {
+  
+  padding-bottom: 12px;
   
 }
 
-.login_bar {
-  
+.header {
+  display: block;
+  margin: auto;
+  width: 50%;
+  position: relative;
+  top: 59px;
+}
+
+.navbar {
   color: black;
   background-color: lightgrey;
-  width: 33%;
-  float: right;
-  overflow: auto;
-  width: 300px;
-  height: 80px;
-  
-}
-
-.login_bar button {
-  float: right;
-}
-
-.login_bar p {
-  display: inline-block;
-}
-
-.main {
-  border: 1px solid white;
-  width:100%;
-  margin:auto;
-}
-
-.titlebar {
-  background-color: green;
-  position: fixed;
   top: 0;
   left: 0;
   height: 80px;
   width: 100%;
-  
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+}
+
+.navbar a {
+  float: left;
+  display: inline-block;
+}
+
+.navbar li {
+  display: inline;
+}
+
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.main {
+  width:100%;
+  margin:auto;
 }
 
 
