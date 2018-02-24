@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'home/profile'
   get "/scores", controller: 'scores', action: 'index'
-  get 'auth/:provider/callback', to: "sessions#create"
+  get 'auth/:provider/callback' => "sessions#create"
   delete 'sign_out', to: "sessions#destroy", as: "sign_out"
   
   get '/about', to: 'home#about', as: 'about'
