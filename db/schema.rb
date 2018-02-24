@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224145446) do
+ActiveRecord::Schema.define(version: 20180224144459) do
 
   create_table "save_states", force: :cascade do |t|
     t.integer "bullets"
@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 20180224145446) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "image"
     t.string   "token"
     t.string   "secret"
     t.string   "profile_image"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "image"
   end
 
 end
