@@ -24,15 +24,16 @@ nav a {
   color: limegreen;
   text-align: center;
   text-decoration: none;
-  height: 1%;
-  padding: 20px;
+  padding: 20px 20px 23px 20px;
   font-size: 2em;
+  margin: auto;
 }
 
 nav a:hover {
     background: #ddd;
     color: black;
     padding: 20px 20px 23px 20px;
+    margin: auto;
 }
 
 
@@ -46,6 +47,10 @@ nav a:hover {
   padding: 10px;
   margin-top: 5px;
   width: 30em;
+}
+
+.omniauth  {
+  float: right;
 }
 
 .omniauth a:hover {
@@ -72,10 +77,16 @@ nav a:hover {
   padding: 0;
   margin: 0;
   position: absolute;
+  text-align: center;
 }
 
 .navbar a {
   float: left;
+  display: inline-block;
+}
+
+.navbar li {
+  display: inline;
 }
 
 
