@@ -42,7 +42,7 @@ var gameState = function (game){
 gameState.prototype = {
     
     preload: function () {
-       
+        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;       
         game.load.image(graphicAssets.ship.name, graphicAssets.ship.URL);
     },
     
