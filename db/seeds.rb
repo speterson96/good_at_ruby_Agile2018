@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 scores = Score.create([{user_id: 1, score: 20}, {user_id: 1, score: 10}, {user_id: 2, score: 30}, {user_id: 3, score: 50}, {user_id: 1, score: 60}, {user_id: 4, score: 70}, {user_id: 6, score: 80}, {user_id: 1, score: 90}, {user_id: 1, score: 100}, {user_id: 1, score: 101}])
-users = User.create([{user_name: 'Jessie'}, {user_name: 'Alex'}, {user_name: 'Bee'}, {user_name: 'Sam'}, {user_name: 'Derik'}, {user_name: 'Benjamin'}])
+users = User.create([{name: 'Jessie'}, {name: 'Alex'}, {name: 'Bee'}, {name: 'Sam'}, {name: 'Derik'}, {name: 'Benjamin'}])
