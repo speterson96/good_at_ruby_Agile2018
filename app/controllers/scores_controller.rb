@@ -10,4 +10,15 @@ class ScoresController < ApplicationController
   def index
     @scores = Score.all 
   end
+  
+  def create
+    userScore = params[:user_score]   
+    @scores = Score.create(user_id: 1, score: userScore)
+    if @scores.save
+    respond_to do |format|
+        format.html { redirect_to @scores, notice: 'Score sent successfully' }
+        format.json { render :new, status: :created, location: @scores }
+    end
+  endgit 
+  
 end
