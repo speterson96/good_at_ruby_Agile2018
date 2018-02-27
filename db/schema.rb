@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220003619) do
-
-  create_table "providers", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20180224144459) do
 
   create_table "save_states", force: :cascade do |t|
     t.integer "bullets"
@@ -38,7 +31,15 @@ ActiveRecord::Schema.define(version: 20180220003619) do
   add_index "scores", ["users_id"], name: "index_scores_on_users_id"
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "image"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "profile_image"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

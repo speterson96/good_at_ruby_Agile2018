@@ -1,18 +1,14 @@
 class User < ActiveRecord::Base
-  has_many :save_state, dependent: :destroy
-  has_many :provider, dependent: :destroy
-  has_many :score, dependent: :destroy
-  
-  def self.sign_in_from_omniauth(auth)
-    find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
-  end
-  
-  def self.create_user_from_omniauth(auth)
-    create(
-      provider: auth['provider'],
-      uid: auth['uid'],
-      name: auth['info']['name']
-      )
-  end
-  
+  def self.find_or_create_from_auth_hash(auth_hash)
+    #look up the user or create them.
+    user = where(provider: auth_hash.provider,uid: auth_hash.uid).first_or_create
+    user.update(
+      name: auth_hash.info.name,
+      image: auth_hash.info.image,
+      token: auth_hash.credentials.token,
+      secret: auth_hash.credentials.secret
+    )
+    user
+  end  
 end
+

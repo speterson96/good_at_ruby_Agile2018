@@ -10,8 +10,6 @@
 
 <body>
 
-
-
   <nav  class="navbar">
     <ul class="navul">
       <li><%=link_to 'Home', root_url %></li>
@@ -21,7 +19,7 @@
       <li ><%= link_to root_path do %>OMNIAUTH<% end %></li>
        
       <% if current_user %>
-        <li class="omniauth">Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: "50", height: "50", class: 'img-circle' ) %></li>
+        <li class="omniauth">Signed in as: <%= current_user.name %> - <%= image_tag(current_user.image, width: "50", height: "50", class: 'img-circle' ) %></li>
         <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
       <% else %>
         <li class="omniauth"><%= link_to "auth/twitter" do %><%= image_tag('twitter_icon.png', width: '40', height: '40', class: 'img-circle') %><% end %></li>
@@ -44,8 +42,8 @@
 <% if current_user %>
   <div class="text-center">
     <h1>Welcome, <%= current_user.name %></h1>
-    <h4>Logged In with -> <strong><em><%= @auth['provider'].capitalized %></em></strong></h4>
-    <%= image_tage('logo.png')%>
+    <h4>Logged In with -> <strong><em><%= current_user.name %></em></strong></h4>
+    <%= image_tag(current_user.image)%>
   </div>
 <% end %>
 
