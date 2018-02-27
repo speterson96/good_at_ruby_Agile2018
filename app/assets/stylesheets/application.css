@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require social-share-button
  */
 canvas { margin: 0 auto; }
