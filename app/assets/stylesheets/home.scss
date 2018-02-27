@@ -5,14 +5,13 @@
 
 // Game wrapper DIV
 #gameDiv {
-  margin: 0 auto;
   display: relative;
   padding-top: 50px;
 }
 
 // Actual game canvas
 #gameDiv canvas {
-  border-color: limegreen;
+  border-color: #34d837;
   border-style: solid;
   width: 50%;
   height: 50%
@@ -25,13 +24,13 @@ body {
 
 header {
   width: 25%;
-  background-color: limegreen;
+  background-color: #34d837;
   text-align: center;
 }
 
 footer {
   float: right;
-  color: red;
+  color: green;
   border-color: black;
   border-style: solid;
   background-color: lightgrey;
@@ -40,22 +39,6 @@ footer {
 
 footer h4 {
   padding: 0 10px;
-}
-
-nav a {
-  color: limegreen;
-  text-align: center;
-  text-decoration: none;
-  padding: 20px 20px 23px 20px;
-  font-size: 2em;
-  margin: auto;
-}
-
-nav a:hover {
-    background: #ddd;
-    color: black;
-    padding: 20px 20px 23px 20px;
-    margin: auto;
 }
 
 .leaderboard {
@@ -69,16 +52,6 @@ nav a:hover {
   width: 30em;
 }
 
-.omniauth  {
-  float: right;
-}
-
-.omniauth a:hover {
-  
-  padding-bottom: 12px;
-  
-}
-
 .header {
   display: block;
   margin: auto;
@@ -87,9 +60,13 @@ nav a:hover {
   top: 59px;
 }
 
+.main {
+  width:100%;
+  margin:auto;
+}
+
 .navbar {
-  color: black;
-  background-color: lightgrey;
+  background-color: #e6ecf7;
   top: 0;
   left: 0;
   height: 80px;
@@ -101,8 +78,21 @@ nav a:hover {
 }
 
 .navbar a {
-  float: left;
+  color: #37383a;
   display: inline-block;
+  float: left;
+  font-size: 2em;
+  text-align: center;
+  text-decoration: none;
+  margin: auto;
+  padding: 20px 20px 23px 20px;
+}
+
+.navbar a:hover {
+    background: darkgrey;
+    color: #44ed47;
+    padding: 20px 20px 23px 20px;
+    margin: auto;
 }
 
 .navbar li {
@@ -115,12 +105,21 @@ nav a:hover {
   padding: 0;
 }
 
-
-.main {
-  width:100%;
-  margin:auto;
+.omniauth  {
+  float: right;
 }
 
+.omniauth a {
+  
+  padding-bottom: 12px;
+  
+}
+
+.omniauth a:hover {
+  
+  padding-bottom: 12px;
+  
+}
 
 /* Background Styles */
 .fadein { 
