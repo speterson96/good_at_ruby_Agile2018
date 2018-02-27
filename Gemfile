@@ -47,3 +47,5 @@ end
 gem 'omniauth-twitter', '~> 1.4'
 #gem 'omniauth-google-oauth2', '~> 0.5.3'
 
+# social share button gem
+gem 'social-share-button'
