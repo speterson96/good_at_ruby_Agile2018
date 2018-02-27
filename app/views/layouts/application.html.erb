@@ -35,17 +35,6 @@
   <div class="alert alert-info"><%= value %></div>
 <% end %>
 
-<!--Flash alert lets user know if they are signed in or out. -->
-<% if current_user %>
-  <div class="text-center">
-    <h1>Welcome, <%= current_user.name %></h1>
-    <h4>Logged In with -> <strong><em><%= current_user.name %></em></strong></h4>
-    <%= image_tag(current_user.image)%>
-  </div>
-<% end %>
-
- 
-    
   <%= render "shared/backgroundImage" %>
   <div class="main">
     <%= yield %>  
