@@ -43,7 +43,8 @@ gameState.prototype = {
     
     preload: function () {
        
-        game.load.image(graphicAssets.ship.name, graphicAssets.ship.URL);
+      this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+      game.load.image(graphicAssets.ship.name, graphicAssets.ship.URL);
     },
     
     create: function () {
@@ -143,7 +144,7 @@ gameState.prototype = {
     
 };
 
-var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, '#gameDiv');
+var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, 'gameDiv');
 game.state.add(states.game, gameState);
 game.state.start(states.game);
 

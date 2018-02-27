@@ -3,6 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// Game wrapper DIV
+#gameDiv {
+  margin: 0 auto;
+  display: relative;
+  padding-top: 50px;
+}
+
+// Actual game canvas
+#gameDiv canvas {
+  border-color: limegreen;
+  border-style: solid;
+  width: 50%;
+  height: 50%
+}
+
 body {
   background-color: black;
   color: white;
@@ -10,17 +25,24 @@ body {
 
 header {
   width: 25%;
-  background-color: green;
+  background-color: limegreen;
   text-align: center;
 }
 
 footer {
-  bottom: 0;
-  position: fixed;
+  float: right;
+  color: red;
+  border-color: black;
+  border-style: solid;
+  background-color: lightgrey;
+  margin-right: 0;
+}
+
+footer h4 {
+  padding: 0 10px;
 }
 
 nav a {
-  // I'd like to get the text to be centered vertically.  
   color: limegreen;
   text-align: center;
   text-decoration: none;
@@ -36,12 +58,10 @@ nav a:hover {
     margin: auto;
 }
 
-
 .leaderboard {
   color: black;
   border-color: black;
   border-style: solid;
-  border-color: black;
   background-color: lightgrey;
   box-shadow: 1px 1px white;
   padding: 10px;
@@ -89,7 +109,6 @@ nav a:hover {
   display: inline;
 }
 
-
 .navbar ul {
   list-style-type: none;
   margin: 0;
@@ -110,6 +129,7 @@ nav a:hover {
     height:100%; 
     z-index: -1;
 }
+
 .fadein img { 
     position:absolute; 
     left:0; 
