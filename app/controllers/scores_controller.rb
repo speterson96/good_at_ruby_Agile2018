@@ -13,7 +13,7 @@ class ScoresController < ApplicationController
   
   def create
     userScore = params[:user_score]   
-    @scores = Score.create(name: "Mr. Name", score: userScore)
+    @scores = Score.create(score: userScore)
     if @scores.save
       respond_to do |format|
          format.html {redirect_to root_path}
