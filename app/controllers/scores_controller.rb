@@ -10,4 +10,17 @@ class ScoresController < ApplicationController
   def index
     @scores = Score.all 
   end
+  
+  def create
+    userScore = params[:user_score]   
+    @scores = Score.create(score: userScore)
+    if @scores.save
+      respond_to do |format|
+         format.html {redirect_to root_path}
+      end
+   
+   end
+  end
+  
+  
 end

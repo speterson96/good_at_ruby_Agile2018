@@ -1,3 +1,5 @@
+//Used to test ajax.
+saveUserState.sendUserScore(1000);
 
 var gameProperties = {
     
