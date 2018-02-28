@@ -16,10 +16,11 @@ class ScoresController < ApplicationController
     @scores = Score.create(user_id: 1, score: userScore)
     if @scores.save
       respond_to do |format|
-          format.html { redirect_to @scores, notice: 'Score sent successfully' }
-          format.json { render :new, status: :created, location: @scores }
+         format.html {redirect_to root_path}
       end
+   
    end
   end
+  
   
 end

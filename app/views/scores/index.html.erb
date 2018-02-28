@@ -9,7 +9,7 @@
     </tr>
     <% @scores.limit(10).order('score desc').each do |score| %>
       <tr>
-        <td><%= score.user.name %></td>
+        <td><%= score.user_id %></td>
         <td><%= score.score %></td>
       </tr>
     <% end %> 

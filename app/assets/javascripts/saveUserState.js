@@ -34,7 +34,7 @@ var saveUserState =  {
       },
        error: function(xhr,status,error){
          console.log(xhr);
-         //alert(error); Dont know what the problem is yet
+         alert(error); //Dont know what the problem is yet
       }
     });
 		 
