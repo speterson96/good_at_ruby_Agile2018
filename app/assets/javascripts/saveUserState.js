@@ -7,10 +7,10 @@ var saveUserState =  {
 	userDifficulty : 'hard',
 		
 	init : function(lives, bullets, score, difficulty){
-		this.userLives : lives;
-		this.userBullets : bullets;
-		this.userScore : score;
-	}
+		this.userLives = lives;
+		this.userBullets = bullets;
+		this.userScore = score;
+	},
 	
 	 sendUserScore : function(lives, bullets, score) {
 		 

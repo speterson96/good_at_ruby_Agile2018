@@ -9,10 +9,10 @@
     </tr>
     <% @scores.limit(10).order('score desc').each do |score| %>
       <tr>
-        <td><%= score.user.user_name %></td>
+        <td><%= score.user.name %></td>
         <td><%= score.score %></td>
       </tr>
     <% end %> 
   </table>
-
+  <p><%= social_share_button_tag("Top Ten Scores") %></p>
 </div>
