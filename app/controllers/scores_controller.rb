@@ -12,8 +12,8 @@ class ScoresController < ApplicationController
   end
   
   def create
-    userScore = params[:user_score]   
-    @scores = Score.create(score: userScore)
+    userScore = params[:user_score]
+    @scores = Score.create(user_id: session[:current_user_id], score: userScore)
     if @scores.save
       respond_to do |format|
          format.html {redirect_to root_path}

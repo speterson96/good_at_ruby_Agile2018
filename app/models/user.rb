@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
       secret: auth_hash.credentials.secret
     )
     user
+    session[:current_user_id] = @user.id
   end  
 end
 
