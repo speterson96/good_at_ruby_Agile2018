@@ -16,7 +16,7 @@ var saveUserState =  {
 	 sendUserSaveState : function(lives, bullets, score, difficulty) {
 		 
 		$.ajax({
-      url: "/",
+      url: "/sendSaveState",
       type: "get",
       data: {
         user_lives : lives, 
