@@ -3,13 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+.smallLeaderboard {
+  
+  float: right;
+  margin-right: 20px;
+}
+
 // Game wrapper DIV
 #gameDiv {
-  display: relative;
   padding-top: 50px;
   width: 50%;
   height: 50%;
   margin: 0 auto;
+  position: relative;
 }
 
 // Actual game canvas
@@ -122,6 +129,7 @@ footer h4 {
   padding-bottom: 12px;
   
 }
+
 
 /* Background Styles */
 .fadein { 

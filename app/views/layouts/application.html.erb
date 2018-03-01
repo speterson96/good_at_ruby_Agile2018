@@ -30,8 +30,14 @@
       <h1>Astroids Game!</h1>
   </header>
   
+  <div id="gameWrapper">
+  <%= render "shared/smallLeaderboard" %>
   <div id="gameDiv">
+  
+    
   </div>
+  </div>
+  
 
 <%flash.each do |key, value| %>
   <div class="alert alert-info"><%= value %></div>
