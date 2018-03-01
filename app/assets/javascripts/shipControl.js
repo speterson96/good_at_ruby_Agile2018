@@ -1,7 +1,7 @@
 //Used to test ajax.
 //saveUserState.sendUserScore(1000);
 // Params: lives, bullets, score, difficulty
-//saveUserState.sendUserSaveState(2, 27, 1337, 'hard');
+saveUserState.sendUserSaveState(2, 27, 1337, 'hard');
 
 var gameProperties = {
     

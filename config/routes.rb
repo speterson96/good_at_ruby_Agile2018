@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'home/profile'
   get "/scores", controller: 'scores', action: 'index'
+  get "/saves", controller: 'save_state', action: 'index'
   get "/sendScores", controller: 'scores', action: 'create'
   get "/sendSaveState", controller: 'save_state', action: 'create'
   get 'auth/:provider/callback' => "sessions#create"

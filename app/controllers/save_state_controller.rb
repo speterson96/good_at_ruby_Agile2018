@@ -1,13 +1,10 @@
 class SaveStateController < ApplicationController
+  before_action :index 
   
-  def set_title
-    
-  end
-
   # GET /scores
   # GET /scores.json
   def index
-    
+    @save_state = SaveState.all 
   end
   
   def create
