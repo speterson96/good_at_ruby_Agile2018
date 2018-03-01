@@ -7,14 +7,16 @@
 #gameDiv {
   display: relative;
   padding-top: 50px;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
 }
 
 // Actual game canvas
 #gameDiv canvas {
   border-color: #34d837;
   border-style: solid;
-  width: 50%;
-  height: 50%
+  
 }
 
 body {
