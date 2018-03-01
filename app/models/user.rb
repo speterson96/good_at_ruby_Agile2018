@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :save_state
   has_many :score
-  has_many :provider
   
   def self.find_or_create_from_auth_hash(auth_hash)
     #look up the user or create them.
