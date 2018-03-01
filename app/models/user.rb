@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :score
+  has_many: :save_state
   
   def self.find_or_create_from_auth_hash(auth_hash)
     #look up the user or create them.
@@ -11,7 +12,6 @@ class User < ActiveRecord::Base
       secret: auth_hash.credentials.secret
     )
     user
-    session[:current_user_id] = @user.id
   end  
 end
 

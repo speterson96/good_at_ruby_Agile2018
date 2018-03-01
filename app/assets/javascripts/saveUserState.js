@@ -4,12 +4,13 @@ var saveUserState =  {
 	userLives : 0,
 	userBullets : 0,
 	userScore : 0,
-	userDifficulty : 'hard',
+	userDifficulty : 'normal',
 		
 	init : function(lives, bullets, score, difficulty){
 		this.userLives = lives;
 		this.userBullets = bullets;
 		this.userScore = score;
+		this.difficulty = difficulty;
 	},
 	
 	 sendUserSaveState : function(lives, bullets, score, difficulty) {
@@ -28,7 +29,7 @@ var saveUserState =  {
       },
        error: function(xhr,status,error){
          console.log(xhr);
-         //alert(error); Dont know what the problem is yet
+         alert(error);
       }
     });
 		 
@@ -45,7 +46,7 @@ var saveUserState =  {
       },
        error: function(xhr,status,error){
          console.log(xhr);
-         alert(error); //Dont know what the problem is yet
+         alert(error); 
       }
     });
 		 
