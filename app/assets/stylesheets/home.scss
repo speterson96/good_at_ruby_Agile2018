@@ -3,6 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// Game wrapper DIV
+#gameDiv {
+  display: relative;
+  padding-top: 50px;
+}
+
+// Actual game canvas
+#gameDiv canvas {
+  border-color: #34d837;
+  border-style: solid;
+  width: 50%;
+  height: 50%
+}
+
 body {
   background-color: black;
   color: white;
@@ -10,53 +24,32 @@ body {
 
 header {
   width: 25%;
-  background-color: green;
+  background-color: #34d837;
   text-align: center;
 }
 
 footer {
-  bottom: 0;
-  position: fixed;
+  float: right;
+  color: green;
+  border-color: black;
+  border-style: solid;
+  background-color: lightgrey;
+  margin-right: 0;
 }
 
-nav a {
-  // I'd like to get the text to be centered vertically.  
-  color: limegreen;
-  text-align: center;
-  text-decoration: none;
-  padding: 20px 20px 23px 20px;
-  font-size: 2em;
-  margin: auto;
+footer h4 {
+  padding: 0 10px;
 }
-
-nav a:hover {
-    background: #ddd;
-    color: black;
-    padding: 20px 20px 23px 20px;
-    margin: auto;
-}
-
 
 .leaderboard {
   color: black;
   border-color: black;
   border-style: solid;
-  border-color: black;
   background-color: lightgrey;
   box-shadow: 1px 1px white;
   padding: 10px;
   margin-top: 5px;
   width: 30em;
-}
-
-.omniauth  {
-  float: right;
-}
-
-.omniauth a:hover {
-  
-  padding-bottom: 12px;
-  
 }
 
 .header {
@@ -67,9 +60,13 @@ nav a:hover {
   top: 59px;
 }
 
+.main {
+  width:100%;
+  margin:auto;
+}
+
 .navbar {
-  color: black;
-  background-color: lightgrey;
+  background-color: #e6ecf7;
   top: 0;
   left: 0;
   height: 80px;
@@ -81,14 +78,26 @@ nav a:hover {
 }
 
 .navbar a {
-  float: left;
+  color: #37383a;
   display: inline-block;
+  float: left;
+  font-size: 2em;
+  text-align: center;
+  text-decoration: none;
+  margin: auto;
+  padding: 20px 20px 23px 20px;
+}
+
+.navbar a:hover {
+    background: darkgrey;
+    color: #44ed47;
+    padding: 20px 20px 23px 20px;
+    margin: auto;
 }
 
 .navbar li {
   display: inline;
 }
-
 
 .navbar ul {
   list-style-type: none;
@@ -96,12 +105,21 @@ nav a:hover {
   padding: 0;
 }
 
-
-.main {
-  width:100%;
-  margin:auto;
+.omniauth  {
+  float: right;
 }
 
+.omniauth a {
+  
+  padding-bottom: 12px;
+  
+}
+
+.omniauth a:hover {
+  
+  padding-bottom: 12px;
+  
+}
 
 /* Background Styles */
 .fadein { 
@@ -110,6 +128,7 @@ nav a:hover {
     height:100%; 
     z-index: -1;
 }
+
 .fadein img { 
     position:absolute; 
     left:0; 

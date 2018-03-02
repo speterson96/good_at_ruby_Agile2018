@@ -7,14 +7,15 @@ Rails.application.routes.draw do
 
   get 'home/profile'
   get "/scores", controller: 'scores', action: 'index'
+  get "/sendScores", controller: 'scores', action: 'create'
   get 'auth/:provider/callback' => "sessions#create"
   delete 'sign_out', to: "sessions#destroy", as: "sign_out"
   
   get '/about', to: 'home#about', as: 'about'
   
   get '/game', to: 'home#game', as: 'game'
-
-
+    
+  post 'game/sendScore' => 'game#sendScore'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

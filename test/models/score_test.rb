@@ -6,5 +6,6 @@ class ScoreTest < ActiveSupport::TestCase
     score.user_id = 1
     score.score = 100
     assert score.save
+  end
 end
 
