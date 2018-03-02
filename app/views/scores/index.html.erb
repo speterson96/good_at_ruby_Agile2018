@@ -16,8 +16,8 @@
         <% end %>
 
         <td><%= score.score %></td>
+        <td><%= social_share_button_tag("Checkout my score!: #{score.score}") %></td>
       </tr>
     <% end %> 
   </table>
-  <p><%= social_share_button_tag("Top Ten Scores") %></p>
 </div>
