@@ -25,7 +25,7 @@ var saveUserState =  {
         user_difficulty : difficulty
       },
       success: function(){
-        alert('Saved Successfully :)');
+        console.log('Saved Successfully :)');
       },
        error: function(xhr,status,error){
          console.log(xhr);
@@ -42,7 +42,7 @@ var saveUserState =  {
       type: "get",
       data: {user_score: score},
       success: function(){
-        alert('Saved Successfully :)');
+        console.log('Saved Successfully :)');
       },
        error: function(xhr,status,error){
          console.log(xhr);
