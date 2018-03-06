@@ -7,7 +7,5 @@ class CreateScores < ActiveRecord::Migration
       t.timestamps null: false
 
     end
-    add_reference :scores, :users, index: true
-    add_foreign_key :scores, :users
   end
 end
