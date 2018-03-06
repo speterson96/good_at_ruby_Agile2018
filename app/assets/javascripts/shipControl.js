@@ -50,7 +50,7 @@ var gameState = function (game){
     this.shootInterval = 0;
 
     this.asteroidGroup;
-    this.asteroidCount = asteroidProperties.startingAsteroids;
+    this.asteroidCount = 3;
     
 };
 
@@ -60,47 +60,6 @@ var shootProperties = {
     interval: 250,
     lifespan: 2000,
     maxCount: 30
-
-};
-
-var asteroidProperties = {
-
-   startingAsteroids: 4,
-   maxAsteroids: 20,
-   incrementAsteroids: 2,
-
-   asteroidLarge: {
-
-        minVelocity: 50,
-        maxVelocity: 150,
-        minAngularVelocity: 0,
-        maxAngularVelocity: 150,
-        score: 20,
-        nextSize: graphicAssets.asteroidMedium.name
-
-   },
-
-   asteroidMedium: {
-
-        minVelocity: 50,
-        maxVelocity: 200,
-        minAngularVelocity: 0,
-        maxAngularVelocity: 150,
-        score: 20,
-        nextSize: graphicAssets.asteroidMedium.name 
-
-   },
-
-   asteroidSmall: {
-
-        minVelocity: 50,
-        maxVelocity: 300,
-        minAngularVelocity: 0,
-        maxAngularVelocity: 150,
-        score: 20,
-        nextSize: graphicAssets.asteroidMedium.name
-
-   }
 
 };
 
@@ -121,7 +80,7 @@ gameState.prototype = {
         this.initGraphics();
         this.initPhysics();
         this.initKeyboard();
-        this.resetAsteroids();
+        this.createAsteroid();
         
     },
 
@@ -133,6 +92,7 @@ gameState.prototype = {
 
         game.physics.arcade.overlap(this.shootGroup, this.asteroidGroup, this.asteroidCollision, null, this);
         game.physics.arcade.overlap(this.shipSprite, this.asteroidGroup, this.asteroidCollision, null, this);
+    
     },
     
     initGraphics: function () {
@@ -259,17 +219,66 @@ gameState.prototype = {
 
     },
 
-    createAsteroid: function (x, y, size) {
+    asteroidSize: function() {
 
-        var asteroid = this.asteroidGroup.create(x, y, size);
-        
+        min = Math.ceil(1);
+        max = Math.floor(3);
+        size = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        if (size == 1) {
+
+            console.log("S");
+            return graphicAssets.asteroidSmall.name;
+    
+        } else if (size == 2) {
+
+            console.log("M");
+            return graphicAssets.asteroidMedium.name;
+    
+        } else {
+
+            console.log("L");
+            return graphicAssets.asteroidLarge.name;
+    
+        }
+    
+    },
+
+   asteroidAngularVelocity: function() {
+
+        min = Math.ceil(0);
+        max = Math.floor(200);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+
+   },
+
+   asteroidAngle: function() {
+
+        min = Math.ceil(0);
+        max = Math.floor(180);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+
+   },
+
+   asteroidVelocity: function() {
+
+        min = Math.ceil(50);
+        max = Math.floor(150);
+        return Math.floor(Math.random() * (max - min +1)) + min;
+
+   },
+
+    createAsteroid: function(x, y) {
+
+        var asteroid = this.asteroidGroup.create(x, y, this.asteroidSize());
         asteroid.anchor.set(0.5, 0.5);
-        asteroid.body.angularVelocity = game.rnd.integerInRange(asteroidProperties[size].minAngularVelocity, asteroidProperties[size].maxAngularVelocity);
+        asteroid.body.angularVelocity = this.asteroidAngularVelocity();
 
-        var randomAngle = game.math.degToRad(game.rnd.angle());
-        var randomVelocity = game.rnd.integerInRange(asteroidProperties[size].minVelocity, asteroidProperties[size].maxVelocity);
- 
+        var randomAngle = this.asteroidAngle();
+        var randomVelocity = this.asteroidVelocity();
+
         game.physics.arcade.velocityFromRotation(randomAngle, randomVelocity, asteroid.body.velocity);
+
     
     },
 
@@ -293,7 +302,7 @@ gameState.prototype = {
 
             }
 
-            this.createAsteroid(x, y, graphicAssets.asteroidLarge.name);
+            this.createAsteroid(x, y);
 
         }
 
