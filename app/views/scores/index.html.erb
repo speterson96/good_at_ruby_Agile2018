@@ -1,11 +1,11 @@
 <div class="leaderboard">
 
-  <h2>Leaderboards</h2>
+  <h2><marquee class="GeneratedMarquee" direction="left" 
+  scrollamount="3" behavior="alternate">Leaderboard - Top 10 Scores</marquee></h2>
   <h4>Well done to our top contenders!</h4>
   <table>
-    <th>Top 10 Scores</th>
     <tr>
-      <td>name:</td><td>score:<td>
+      <th>Name:</th><th>Score:</th>
     </tr>
     <% @scores.limit(10).order('score desc').each do |score| %>
       <tr>
@@ -16,7 +16,7 @@
         <% end %>
 
         <td><%= score.score %></td>
-        <td><%= social_share_button_tag("Checkout my score!: #{score.score}") %></td>
+        <td><%= social_share_button_tag("I got #{score.score} points!") %></td>
       </tr>
     <% end %> 
   </table>
