@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20180224144459) do
 
   create_table "save_states", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "bullets"
     t.integer "lives"
     t.integer "score"
@@ -25,10 +26,7 @@ ActiveRecord::Schema.define(version: 20180224144459) do
     t.integer  "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "users_id"
   end
-
-  add_index "scores", ["users_id"], name: "index_scores_on_users_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
