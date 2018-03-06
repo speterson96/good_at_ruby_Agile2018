@@ -4,8 +4,7 @@
   <h2 class="savesHeader">Your saves</h2>
   <h4 class="savesHeader">Click to continue where you left off!</h4>
 
-    <% @save_state.each do |save| %>
-    
+    <% @save_state.where("user_id = ?", session[:user_id]).each do |save| %>
         <div class="saveDivider"></div>
         <div class="saveSlot saveName">
           <% if  save.user %>
