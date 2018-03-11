@@ -1,0 +1,405 @@
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:22:18 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.0) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.0) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/bundle/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
+  Rendered /usr/local/bundle/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /usr/local/bundle/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /usr/local/bundle/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.8ms)
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (4.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateSaveStates (20180219053935)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "save_states" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "bullets" integer, "lives" integer, "score" integer, "difficulty" varchar) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180219053935"]]
+  [1m[35m (4.5ms)[0m  commit transaction
+Migrating to CreateScores (20180219235132)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "scores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "score" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180219235132"]]
+  [1m[35m (4.4ms)[0m  commit transaction
+Migrating to CreateUsers (20180224144459)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar, "uid" varchar, "name" varchar, "image" varchar, "token" varchar, "secret" varchar, "profile_image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180224144459"]]
+  [1m[35m (4.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:22:29 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1576.9ms)
+  Rendered shared/_smallLeaderboard.html.erb (16.8ms)
+  Rendered shared/_backgroundImage.html.erb (14.0ms)
+  Rendered shared/_footer.html.erb (0.8ms)
+Completed 200 OK in 1630ms (Views: 1629.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/home.self-a60f49d257c32c859735243c2d8d34194b93953d1923b051e47fff3f040ba9a8.css?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/leaderboard.self-6fcf82d1fb61a67539b7b64f690d8acd050947f7be82f59caf974ca0ab823d85.css?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/social-share-button.self-67c4975b84914d1ee83e730cec9099efd6ed35d412d502a5c379524f1be82135.css?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/social-share-button.self-d1725d35699d974c9834cae2be205aae782d1dc63fe9d4cebcfce8146bf2e71a.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-2db6ec539b9190f75e1d477b305df53d12904d5cafdd47c7ffd91ba25cbec128.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/fadingBG.self-497b032a55c60d181674c8678150172de02f121f573bbc6976d2f63af29b70f0.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/phaser.min.self-830fd3ffb70e42e6a91a926c31dda700b7e0439477727a895da62928c3172a81.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/saveUserState.self-3f22442153c30c7bedba71796cb2123c02a695abf37b26e0ffbe2621c75068db.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/shipControl.self-ab64c50af921d71b35d672a41d2633893f4b146105ed7449f69e99a991042d24.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f98a0dd27ad1c55b2b9cfe97296d4887e5d4a4535b3bbbf9130c1050771738b2.js?body=1" for 71.95.84.188 at 2018-03-11 20:22:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter_icon-13cf611abc03e59c247c9d4b81bce155bb5c1de36ccbea49e42c51f08cc47697.png" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bg3-c987c7b551a5ce1f25a6326602d696ce3fb6619a19a386d842986b04ae8e868b.jpg" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bg1-855c9cf8b4cb34573934be1f0fb9ffb323181f4d083fe0d0098da9ddadf4c840.jpg" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bg2-4f999d06d49539d268877ac9978347ad7e799d01d8ff47687217dd802b775743.jpg" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bg4-419ac07befc86d77d1dd36ec1dd35fc00f4817fa35602bf81bb78e83052f4820.jpg" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/sprites/social-share-button-01bd4e9a7782620aab986c55abc6ecb9ee88d50bb51f28c2f00fe36d87a0944c.png" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/sendSaveState?user_lives=2&user_bullets=27&user_score=1337&user_difficulty=hard" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SaveStateController#create as */*
+  Parameters: {"user_lives"=>"2", "user_bullets"=>"27", "user_score"=>"1337", "user_difficulty"=>"hard"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "save_states" ("score", "difficulty", "bullets", "lives") VALUES (?, ?, ?, ?)[0m  [["score", 1337], ["difficulty", "hard"], ["bullets", 27], ["lives", 2]]
+  [1m[35m (6.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://node20.codenvy.io:44342/
+Completed 302 Found in 32ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/assets/ship.png" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/theHoff.jpg" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/small.jpg" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/medium.jpg" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/large.jpg" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:22:31 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as */*
+  Rendered home/index.html.erb within layouts/application (18.6ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.5ms)
+  Rendered shared/_backgroundImage.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 35ms (Views: 35.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/scores" for 71.95.84.188 at 2018-03-11 20:22:34 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"  ORDER BY score desc LIMIT 10[0m
+  Rendered scores/index.html.erb within layouts/application (2.0ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.2ms)
+  Rendered shared/_backgroundImage.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:22:38 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (16.7ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.3ms)
+  Rendered shared/_backgroundImage.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 25ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sendSaveState?user_lives=2&user_bullets=27&user_score=1337&user_difficulty=hard" for 71.95.84.188 at 2018-03-11 20:22:38 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SaveStateController#create as */*
+  Parameters: {"user_lives"=>"2", "user_bullets"=>"27", "user_score"=>"1337", "user_difficulty"=>"hard"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "save_states" ("score", "difficulty", "bullets", "lives") VALUES (?, ?, ?, ?)[0m  [["score", 1337], ["difficulty", "hard"], ["bullets", 27], ["lives", 2]]
+  [1m[35m (4.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://node20.codenvy.io:44342/
+Completed 302 Found in 8ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/sendSaveState?user_lives=2&user_bullets=27&user_score=1337&user_difficulty=hard" for 71.95.84.188 at 2018-03-11 20:22:39 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SaveStateController#create as */*
+  Parameters: {"user_lives"=>"2", "user_bullets"=>"27", "user_score"=>"1337", "user_difficulty"=>"hard"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "save_states" ("score", "difficulty", "bullets", "lives") VALUES (?, ?, ?, ?)  [["score", 1337], ["difficulty", "hard"], ["bullets", 27], ["lives", 2]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://node20.codenvy.io:44342/
+Completed 302 Found in 7ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:22:39 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as */*
+  Rendered home/index.html.erb within layouts/application (17.2ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.4ms)
+  Rendered shared/_backgroundImage.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:22:39 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as */*
+  Rendered home/index.html.erb within layouts/application (17.3ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.3ms)
+  Rendered shared/_backgroundImage.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:25:28 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (510.1ms)
+  Rendered shared/_smallLeaderboard.html.erb (8.3ms)
+  Rendered shared/_backgroundImage.html.erb (4.5ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 551ms (Views: 550.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sendSaveState?user_lives=2&user_bullets=27&user_score=1337&user_difficulty=hard" for 71.95.84.188 at 2018-03-11 20:25:29 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SaveStateController#create as */*
+  Parameters: {"user_lives"=>"2", "user_bullets"=>"27", "user_score"=>"1337", "user_difficulty"=>"hard"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "save_states" ("score", "difficulty", "bullets", "lives") VALUES (?, ?, ?, ?)[0m  [["score", 1337], ["difficulty", "hard"], ["bullets", 27], ["lives", 2]]
+  [1m[35m (5.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://node20.codenvy.io:44342/
+Completed 302 Found in 33ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/ship.png" for 71.95.84.188 at 2018-03-11 20:25:29 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/theHoff.jpg" for 71.95.84.188 at 2018-03-11 20:25:29 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/small.jpg" for 71.95.84.188 at 2018-03-11 20:25:29 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/medium.jpg" for 71.95.84.188 at 2018-03-11 20:25:29 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/large.jpg" for 71.95.84.188 at 2018-03-11 20:25:29 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:25:30 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as */*
+  Rendered home/index.html.erb within layouts/application (23.3ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.7ms)
+  Rendered shared/_backgroundImage.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 41ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/scores" for 71.95.84.188 at 2018-03-11 20:25:32 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ScoresController#index as HTML
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"  ORDER BY score desc LIMIT 10[0m
+  Rendered scores/index.html.erb within layouts/application (2.3ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.3ms)
+  Rendered shared/_backgroundImage.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/about" for 71.95.84.188 at 2018-03-11 20:25:35 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (0.4ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.5ms)
+  Rendered shared/_backgroundImage.html.erb (4.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:25:36 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (22.5ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.4ms)
+  Rendered shared/_backgroundImage.html.erb (3.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sendSaveState?user_lives=2&user_bullets=27&user_score=1337&user_difficulty=hard" for 71.95.84.188 at 2018-03-11 20:25:36 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SaveStateController#create as */*
+  Parameters: {"user_lives"=>"2", "user_bullets"=>"27", "user_score"=>"1337", "user_difficulty"=>"hard"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "save_states" ("score", "difficulty", "bullets", "lives") VALUES (?, ?, ?, ?)[0m  [["score", 1337], ["difficulty", "hard"], ["bullets", 27], ["lives", 2]]
+  [1m[35m (5.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://node20.codenvy.io:44342/
+Completed 302 Found in 9ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/sendSaveState?user_lives=2&user_bullets=27&user_score=1337&user_difficulty=hard" for 71.95.84.188 at 2018-03-11 20:25:37 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SaveStateController#create as */*
+  Parameters: {"user_lives"=>"2", "user_bullets"=>"27", "user_score"=>"1337", "user_difficulty"=>"hard"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "save_states" ("score", "difficulty", "bullets", "lives") VALUES (?, ?, ?, ?)  [["score", 1337], ["difficulty", "hard"], ["bullets", 27], ["lives", 2]]
+  [1m[36m (5.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://node20.codenvy.io:44342/
+Completed 302 Found in 9ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:25:37 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as */*
+  Rendered home/index.html.erb within layouts/application (23.9ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.3ms)
+  Rendered shared/_backgroundImage.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 71.95.84.188 at 2018-03-11 20:25:37 +0000
+Cannot render console from 71.95.84.188! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as */*
+  Rendered home/index.html.erb within layouts/application (21.5ms)
+  Rendered shared/_smallLeaderboard.html.erb (0.3ms)
+  Rendered shared/_backgroundImage.html.erb (3.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 39.7ms | ActiveRecord: 0.0ms)
