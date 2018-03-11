@@ -50,6 +50,18 @@ var saveUserState =  {
       }
     });
 		 
+  },
+  
+  startGameFromSave : function(e){
+    
   }
-
+  
 } 
+
+ 
+
+
+
+
+
+
