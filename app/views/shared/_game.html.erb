@@ -6,20 +6,6 @@
   
   <!-- Going to do everything in javascript using ajax and hit rails methods with ajax as the interface  -->
   
-  <% @save_state.each do |save| %>
-  
-    <% if  save.user %>
-      <p class="saveLabel"><%= save.user.name %></p>
-    <% else %>
-      <p class="saveLabel">No Name Entered</p>
-    <% end %> <br><br>
-    <p class="saveLabel">Score: </p><p><%= save.score %></p>
-    <p class="saveLabel">Lives: </p><p><%= save.lives %></p>
-    <p class="saveLabel">Bullets: </p><p><%= save.bullets %></p>
-    <p class="saveLabel">Difficulty: </p><p><%= save.difficulty %></p>
-  </div>
-
-  <% end %> 
     
   <!-- add small leaderboard later -->
     <div id="gameDiv">
