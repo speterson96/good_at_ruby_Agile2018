@@ -1,7 +1,19 @@
 //Used to test ajax.
 //saveUserState.sendUserScore(1000);
 // Params: lives, bullets, score, difficulty
-saveUserState.sendUserSaveState(2, 27, 1337, 'hard');
+//saveUserState.sendUserSaveState(2, 27, 1337, 'hard');
+game = function(lives, bullets, score, difficulty) {
+
+    console.log(lives, bullets, score, difficulty);
+
+var userPropertiesDefaults = {
+
+    lives: lives,
+    bullets: bullets,
+    score: score,
+    difficulty: difficulty
+
+};
 
 var gameProperties = {
     
@@ -18,11 +30,11 @@ var states = {
 
 var graphicAssets = {
     
-    ship:{URL:'/assets/ship.png', name:'ship'},
+    ship:{URL:'/assets/player.png', name:'ship'},
     bullet:{URL:'/assets/theHoff.jpg', name:'bullet'},
     asteroidMedium:{URL:'/assets/medium.jpg', name:'medium'},
-    asteroidSmall:{URL:'/assets/small.jpg', name:'small'},
-    asteroidLarge:{URL:'/assets/large.jpg', name:'large'}
+    asteroidSmall:{URL:'/assets/asteroid-small.png', name:'small'},
+    asteroidLarge:{URL:'/assets/asteroid-big.png', name:'large'}
     
 };
 
@@ -33,7 +45,8 @@ var shipProperties = {
     acceleration: 300,
     drag: 100,
     maxVelocity: 300,
-    angularVelocity: 200
+    angularVelocity: 200,
+    life: lives
     
 };
 
@@ -59,7 +72,8 @@ var shootProperties = {
     speed: 400,
     interval: 250,
     lifespan: 2000,
-    maxCount: 30
+    maxCount: 30,
+    bullets: bullets
 
 };
 
@@ -164,7 +178,9 @@ gameState.prototype = {
 
         if (this.key_fire.isDown) {
 
-            this.fire();
+            this.fire(shootProperties.bullets);
+            console.log(shootProperties.bullets);
+            shootProperties.bullets -= 1;
 
         }
         
@@ -195,24 +211,31 @@ gameState.prototype = {
         
     },
 
-    fire: function () {
+    fire: function (ammo) {
 
-        if (game.time.now > this.shootInterval) {
+        if (ammo > 0) {
+        
+            if (game.time.now > this.shootInterval) {
 
             var bullet = this.shootGroup.getFirstExists(false);
 
-            if (bullet) {
+                if (bullet) {
 
-                var lenght = this.shipSprite.width * 0.5;
-                var x = this.shipSprite.x + (Math.cos(this.shipSprite.rotation) * lenght);
-                var y = this.shipSprite.y + (Math.sin(this.shipSprite.rotation) * lenght);
+                    var lenght = this.shipSprite.width * 0.5;
+                    var x = this.shipSprite.x + (Math.cos(this.shipSprite.rotation) * lenght);
+                    var y = this.shipSprite.y + (Math.sin(this.shipSprite.rotation) * lenght);
 
-                bullet.reset(x, y);
-                bullet.lifespan = shootProperties.lifespan;
-                bullet.rotation = this.shipSprite.rotation;
+                    bullet.reset(x, y);
+                    bullet.lifespan = shootProperties.lifespan;
+                    bullet.rotation = this.shipSprite.rotation;
 
-                game.physics.arcade.velocityFromRotation(this.shipSprite.rotation, shootProperties.speed, bullet.body.velocity);
-                this.shootInterval = game.time.now + shootProperties.interval;
+                    game.physics.arcade.velocityFromRotation(this.shipSprite.rotation, shootProperties.speed, bullet.body.velocity);
+                    this.shootInterval = game.time.now + shootProperties.interval;
+
+                    console.log(ammo);
+
+                }
+
             }
 
         }
@@ -227,17 +250,14 @@ gameState.prototype = {
 
         if (size == 1) {
 
-            console.log("S");
             return graphicAssets.asteroidSmall.name;
     
         } else if (size == 2) {
 
-            console.log("M");
             return graphicAssets.asteroidMedium.name;
     
         } else {
 
-            console.log("L");
             return graphicAssets.asteroidLarge.name;
     
         }
@@ -320,3 +340,6 @@ gameState.prototype = {
 var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, 'gameDiv');
 game.state.add(states.game, gameState);
 game.state.start(states.game);
+}
+
+game(3, 30, 0, 'normal');
