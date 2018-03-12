@@ -62,6 +62,8 @@ var gameState = function (game){
 
     this.asteroidGroup;
     this.asteroidCount = 3;
+
+    this.shipLives = shipProperties.life;
     
 };
 
@@ -329,6 +331,7 @@ gameState.prototype = {
 
         target.kill();
         asteroid.kill();
+
         if (size == 1) {
 
             score += 10;
@@ -348,7 +351,34 @@ gameState.prototype = {
 
         console.log("score: ", score, "size: ", size);
 
-    }
+        if (target.key = graphicAssets.ship.name) {
+            
+            this.destroyShip();
+
+        }
+
+    },
+
+    resetShip: function() {
+
+        this.shipSprite.reset(shipProperties.startX, shipProperties.startY);
+        this.shipSprite.angle = -90;
+
+    },
+
+    destroyShip: function () {
+
+        this.shipLives -= 1;
+
+        if (this.shipLives) {
+
+            this.resetShip();
+
+        }
+
+        console.log(this.shipLives);
+
+    } 
     
 };
 
