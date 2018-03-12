@@ -4,8 +4,6 @@
 //saveUserState.sendUserSaveState(2, 27, 1337, 'hard');
 game = function(lives, bullets, score, difficulty) {
 
-    console.log(lives, bullets, score, difficulty);
-
 var userPropertiesDefaults = {
 
     lives: lives,
@@ -64,6 +62,8 @@ var gameState = function (game){
 
     this.asteroidGroup;
     this.asteroidCount = 3;
+
+    this.shipLives = shipProperties.life;
     
 };
 
@@ -76,7 +76,7 @@ var shootProperties = {
     bullets: bullets
 
 };
-
+console.log("score: ", score);
 gameState.prototype = {
     
     preload: function () {
@@ -179,7 +179,6 @@ gameState.prototype = {
         if (this.key_fire.isDown) {
 
             this.fire(shootProperties.bullets);
-            console.log(shootProperties.bullets);
             shootProperties.bullets -= 1;
 
         }
@@ -232,7 +231,7 @@ gameState.prototype = {
                     game.physics.arcade.velocityFromRotation(this.shipSprite.rotation, shootProperties.speed, bullet.body.velocity);
                     this.shootInterval = game.time.now + shootProperties.interval;
 
-                    console.log(ammo);
+                    console.log("ammo: ", ammo);
 
                 }
 
@@ -333,7 +332,53 @@ gameState.prototype = {
         target.kill();
         asteroid.kill();
 
-    }
+        if (size == 1) {
+
+            score += 10;
+            size = "small";
+
+        } else if (size == 2) {
+
+            score += 20;
+            size = "medium";
+
+        } else {
+
+            score += 30;
+            size = "large";
+
+        }
+
+        console.log("score: ", score, "size: ", size);
+
+        if (target.key = graphicAssets.ship.name) {
+            
+            this.destroyShip();
+
+        }
+
+    },
+
+    resetShip: function() {
+
+        this.shipSprite.reset(shipProperties.startX, shipProperties.startY);
+        this.shipSprite.angle = -90;
+
+    },
+
+    destroyShip: function () {
+
+        this.shipLives -= 1;
+
+        if (this.shipLives) {
+
+            this.resetShip();
+
+        }
+
+        console.log(this.shipLives);
+
+    } 
     
 };
 
