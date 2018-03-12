@@ -52,45 +52,29 @@ var saveUserState =  {
 		 
   },
   
-  startGameFromSave : function(lives, bullets, score, difficulty){
-    
-    $.ajax({
-      url: "/sendScores",
-      type: "get",
-      data: {user_score: score},
-      success: function(){
-        console.log('Saved Successfully :)');
-      },
-       error: function(xhr,status,error){
-         console.log(xhr);
-         alert(error); 
-      }
-    });
-    
-    
-    
+  startGameFromSave : function(lives, bullets, score, difficulty){   
+    window.location.href = "/game";
+    gameStart(lives, bullets, score, difficulty);
   }
   
 }
- 
-
-  
+   
 var saves = document.querySelectorAll(".saveSlot");
   
 for(var i = 0; i < saves.length; i++){
   saves[i].addEventListener("click", function(){
-     console.log(this);
+
     var score, bullets, lives, difficulty;
       
-      score = $(this).children(".score").text();
-      lives = $(this).children(".lives").text();
-      bullets = $(this).children(".bullets").text();
-      difficulty = $(this).children(".difficulty").text();
+    score = $(this).children(".score").text();
+    lives = $(this).children(".lives").text();
+    bullets = $(this).children(".bullets").text();
+    difficulty = $(this).children(".difficulty").text();
       
-      console.log(score, lives, bullets, difficulty);
-      saveUserState.sartGameFromSave(lives, bullets, score, difficulty);
+    console.log(score, lives, bullets, difficulty);
+    saveUserState.startGameFromSave(lives, bullets, score, difficulty);
       
-    }, false)
+    }, false);
 }
    
   
