@@ -4,21 +4,25 @@
   <h2 class="savesHeader">Your saves</h2>
   <h4 class="savesHeader">Click to continue where you left off!</h4>
 
-    <% @save_state.each do |save| %>
-    
-        <div class="saveDivider"></div>
+    <% @save_state.where("user_id = ?", session[:user_id]).each do |save| %>
+      <div class="saveDivider"></div>
         <div class="saveSlot saveName">
           <% if  save.user %>
             <p class="saveLabel"><%= save.user.name %></p>
           <% else %>
             <p class="saveLabel">No Name Entered</p>
           <% end %> <br><br>
-          <p class="saveLabel">Score: </p><p><%= save.score %></p>
-          <p class="saveLabel">Lives: </p><p><%= save.lives %></p>
-          <p class="saveLabel">Bullets: </p><p><%= save.bullets %></p>
-          <p class="saveLabel">Difficulty: </p><p><%= save.difficulty %></p>
+          <p class="saveLabel">Score: </p><p class="score"><%= save.score %></p>
+          <p class="saveLabel">Lives: </p><p class="lives"><%= save.lives %></p>
+          <p class="saveLabel">Bullets: </p><p class="bullets"><%= save.bullets %></p>
+          <p class="saveLabel">Difficulty: </p><p class="difficulty"><%= save.difficulty %></p>
         </div>
 
     <% end %> 
   
 </div>
+
+<%= javascript_include_tag 'application' %>
+
+
+

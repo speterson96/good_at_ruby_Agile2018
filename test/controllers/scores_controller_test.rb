@@ -3,8 +3,8 @@ require './test/test_helper'
 class ScoresControllerTest < ActionController::TestCase
 
   test "should send score" do
-  controller = scores_controller.new 
-    assert_that  controller.create
+     assert_recognizes({:controller => 'scores', :action => 'create'}, {:path => 'sendScores', :method => :get})
+     #get "/sendScores", controller: 'scores', action: 'create' -- Route path its looking for
   end
   
 end
