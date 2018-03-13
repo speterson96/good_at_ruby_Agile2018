@@ -25,9 +25,12 @@
   font-size:2em;
   /*font-style:italic;*/
   line-height:1.3em;
-  color:#34d837;
   background-color:#000000;
   padding:.5em;
   margin: auto;
+  left: 50%;
+  font-size: 2em;
+  color: #fff;
+  text-shadow: 0 0 20px #34d837;
 
 }
