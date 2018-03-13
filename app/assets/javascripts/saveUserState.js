@@ -1,4 +1,6 @@
 
+
+
 var saveUserState =  {
 	
 	userLives : 0,
@@ -53,17 +55,37 @@ var saveUserState =  {
   },
   
   startGameFromSave : function(lives, bullets, score, difficulty){   
-    window.location.href = "/game";
-    //gameStart(lives, bullets, score, difficulty);
-    // Once merged with master this function will work
-    // may need a name change but thats all.
+   
+   
+		$.ajax({
+      url: "/startGameFromSave",
+      type: "get",
+      data: {
+        user_lives : lives, 
+        user_bullets : bullets, 
+        user_score : score, 
+        user_difficulty : difficulty
+      },
+      success: function(){
+        console.log('Game Started :)');
+      },
+       error: function(xhr,status,error){
+         console.log(xhr);
+         alert(error);
+      }
+    }); 
+    
+   // window.location.href="/game";
+   //game(lives,bullets,score,difficulty);
+   //loadFromSave = false;
+   
   }
   
 }
    
    
 $(function(){
-  
+  loadFromSave = true;
   var saves = document.querySelectorAll(".saveSlot");
   
   for(var i = 0; i < saves.length; i++){
