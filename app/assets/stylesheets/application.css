@@ -14,3 +14,51 @@
  *= require_self
  *= require social-share-button
  */
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    
+    
+}
+.header {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 3em;
+    color: #fff;
+    text-shadow: 0 0 20px #34d837;
+}
+
+.header a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+    z-index: -1;
+    color: #34d837;
+    filter: blur(15px);
+}
+
+.header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: #34d837;
+    z-index: -2;
+    opacity: .5;
+    filter: blur(40px);
+    
+}

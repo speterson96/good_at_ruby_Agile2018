@@ -1,31 +1,36 @@
 .leaderboard {
+  margin-top: 300px;
+  margin-left: 36%;
   width:400px;
   background-color:#eee;
   border-collapse:collapse; 
   }
   
 .leaderboard th {
-  font-family:'Comic Sans MS';
+  font-family: 'Quicksand', sans-serif;
   background-color:#000;
-  color:white;
+  color:#34d837;
   width:50%; 
   }
   
 .leaderboard td, .leaderboard th {
-  font-family:'Comic Sans MS';
+  font-family: 'Quicksand', sans-serif;
   padding:5px;
   border:1px 
   solid #000; 
   }
   
 .GeneratedMarquee {
-  font-family:'Comic Sans MS';
+  font-family: 'Quicksand', sans-serif;
   font-size:2em;
-  font-style:italic;
+  /*font-style:italic;*/
   line-height:1.3em;
-  color:#FF0033;
   background-color:#000000;
   padding:.5em;
   margin: auto;
+  left: 50%;
+  font-size: 2em;
+  color: #fff;
+  text-shadow: 0 0 20px #34d837;
 
 }
