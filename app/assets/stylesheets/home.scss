@@ -21,6 +21,7 @@
 
 // Actual game canvas
 #gameDiv canvas {
+  margin-top: 275px;
   border-color: #34d837;
   border-style: solid;
   
@@ -33,7 +34,7 @@ body {
 
 header {
   width: 25%;
-  background-color: #34d837;
+  background: url(solidblackbg.jpg);
   text-align: center;
 }
 
