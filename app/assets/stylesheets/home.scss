@@ -21,6 +21,7 @@
 
 // Actual game canvas
 #gameDiv canvas {
+  margin-top: 275px;
   border-color: #34d837;
   border-style: solid;
   
@@ -33,17 +34,19 @@ body {
 
 header {
   width: 25%;
-  background-color: #34d837;
+  background: url(solidblackbg.jpg);
   text-align: center;
 }
 
 footer {
-  float: right;
-  color: green;
+  /*float: right;*/
+  text-align: center;
+  color: #fff;
   border-color: black;
   border-style: solid;
-  background-color: lightgrey;
+  background: url(solidblackbg.jpg);
   margin-right: 0;
+  text-shadow: 0 0 20px #34d837;
 }
 
 footer h4 {
@@ -76,7 +79,7 @@ footer h4 {
   
 .GeneratedMarquee {
   font-size:1em;
-  font-style:italic;
+  /*font-style:italic;*/
   line-height:1.3em;
   color:#7cff00;
   background-color:#000000;
