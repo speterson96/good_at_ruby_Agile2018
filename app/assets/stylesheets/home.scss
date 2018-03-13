@@ -26,16 +26,21 @@
   
 }
 //positioning HUD over game
-#gameWrapper {
+.gameWrapper {
   position: absolute;
+  float: left;
+  width: 100%;
+  margin: 10px 10px 0 10px;
+}
+
+.gameWrapper * {
   float: left;
 }
 
-#gameWrapper * {
-  position: relative;
-  float: left;
-  margin-top: 5px;
+.livesWrapper {
+  float: right;
 }
+
 
 .bullet {
   -webkit-transform: rotate(-90deg);
@@ -49,6 +54,7 @@
 
 .lives {
   margin: 16px;
+  float: right;
 }
 
 .life {
@@ -76,6 +82,7 @@ header {
 
 .moveBelowHeader {
   margin-top: 350px;
+  margin-left: 20px;
 }
 
 footer {

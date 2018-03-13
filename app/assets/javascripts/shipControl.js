@@ -78,18 +78,24 @@ var shootProperties = {
 };
 
 // Adding the HUD for the game
-$(document).ready(function() {
+var bulletCounter = Math.floor(bullets / 10); 
+var lifeCounter = Math.floor(lives);
+userHUD();
+function userHUD() {$(document).ready(function() {
   
-  for (i=0; i < bullets / 10; i++) {
-    $('.bullets').after("<img src='/assets/theHoff.jpg' alt='The Hoff' class='bullet'></img>");
+  for (i=0; i < bulletCounter ; i++) {
+    
+    $('.bullets').after("<img src='/assets/theHoff.jpg' alt='The Hoff' class='bullet bullet" + (i + 1)  + "'></img>");
+    
   }
   
   for (i=0; i < lives; i++) {
-    $('.lives').after("<img src='/assets/player.png' alt='The Hoff' class='life'></img>");
+    
+    $('.lives').after("<img src='/assets/player.png' alt='Player' class='life life" + (i + 1) + "'></img>");
+    console.log("Lives: " + lives);
+    
   }
-  
-  
-});
+})};
 
 console.log("score: ", score);
 gameState.prototype = {
@@ -195,9 +201,8 @@ gameState.prototype = {
 
             this.fire(shootProperties.bullets);
             shootProperties.bullets -= 1;
-
+            
         }
-        
     },
     
     checkBoundaries: function (sprite) {
@@ -222,7 +227,6 @@ gameState.prototype = {
             sprite.y =0;
             
         }
-        
     },
 
     fire: function (ammo) {
@@ -247,13 +251,13 @@ gameState.prototype = {
                     this.shootInterval = game.time.now + shootProperties.interval;
 
                     console.log("ammo: ", ammo);
-
+                    
+                    $(".bullet" + bulletCounter).remove();
+                    bulletCounter -=1;
+                    
                 }
-
             }
-
         }
-
     },
 
     asteroidSize: function() {
@@ -275,7 +279,6 @@ gameState.prototype = {
             return graphicAssets.asteroidLarge.name;
     
         }
-    
     },
 
    asteroidAngularVelocity: function() {
@@ -369,9 +372,8 @@ gameState.prototype = {
         if (target.key = graphicAssets.ship.name) {
             
             this.destroyShip();
-
+            
         }
-
     },
 
     resetShip: function() {
@@ -388,8 +390,13 @@ gameState.prototype = {
         if (this.shipLives) {
 
             this.resetShip();
+            
 
         }
+        //TODO add remove life
+            $(".life" + lifeCounter).remove();
+            lifeCounter -= 1;
+            console.log("lost a life! " + lifeCounter);
 
         console.log(this.shipLives);
 
