@@ -30,13 +30,5 @@ class SaveStateController < ApplicationController
       end 
     end
   end
-  
-  def start_game
     
-    respond_to do |format|
-         format.html {redirect_to root_url}
-    end 
-    
-  end
-  
 end

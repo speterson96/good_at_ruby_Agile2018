@@ -177,6 +177,7 @@ footer h4 {
 /* Saves Styles */
   .savesContainer {
     width: 95%; margin:0 auto;
+    margin-top: 23em;
     text-align:left;
     background-color:rgba(25,25,25, 0.5);
   }
@@ -211,10 +212,15 @@ footer h4 {
     text-align:center;
   }
   .startGame{
-    width:150px;
-    height:150px;
-    margin-top:15em;
-    border:1px solid red;
-    float:left;
+    height:2.5em;
+    width:95%;
+    margin:auto;
+    margin-top:23em;
+    border:1px dotted lime;
+    text-align: center;
   }
-
+  .startGame:hover{
+    border:2px dotted lime;
+    color:#eee;
+    cursor: pointer;
+  }

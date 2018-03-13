@@ -1,7 +1,7 @@
 //Used to test ajax.
 saveUserState.sendUserScore(1000);
 //Params: lives, bullets, score, difficulty
-saveUserState.sendUserSaveState(2, 27, 1337, 'hard');
+//saveUserState.sendUserSaveState(2, 27, 1337, 'hard');
 
 game = function(lives, bullets, score, difficulty) {
 
@@ -387,3 +387,6 @@ var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeig
 game.state.add(states.game, gameState);
 game.state.start(states.game);
 }
+
+
+document.querySelector('.startGame').style.display="block";

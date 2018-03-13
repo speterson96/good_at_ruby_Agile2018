@@ -1,9 +1,3 @@
-var savesCurrentLives = 0;
-var savesCurrentBullets = 0;
-var savesCurrentScore = 0;
-var savesCurrentDiff = 'normal';
-
-
 
 var saveUserState =  {
 	
@@ -61,30 +55,28 @@ var saveUserState =  {
   startGameFromSave : function(lives, bullets, score, difficulty){   
      		 
     if(confirm("Are you sure you want to load this save?")){
-      window.location="/game?score=" + score + "&bullets=" + bullets + "&lives=" + lives + "&diff=" + difficulty;
+      window.location="/game?score=" + score + "&bullets=" + bullets + "&lives=" + lives + "&diff=" + difficulty + "&save=t" ;
     }
        
   },
   
   
   startGame : function() {
-      console.log("game Starting")
-    if (saveUserState.parseQuery(location.search).lives === null || 
-        saveUserState.parseQuery(location.search).bullets === null || 
-        saveUserState.parseQuery(location.search).score === null || 
-        saveUserState.parseQuery(location.search).diff === null){
-             
-             game(3, 3000, 0, 'normal');
-             console.log("game defau")
+      
+    if (saveUserState.parseQuery(location.search).save !== 't'){
+            
+             game(3, 30, 0, 'normal'); //These values are the defaults for lauching the game.
              
     } else {
-        console.log("Launching from a previous save, score: " + savesCurrentScore);
+      
         game(saveUserState.parseQuery(location.search).lives, 
              saveUserState.parseQuery(location.search).bullets, 
              saveUserState.parseQuery(location.search).score, 
              saveUserState.parseQuery(location.search).diff);
-         console.log("game save")
+        
     }
+    
+    document.querySelector('.startGame').style.display="none";
        
   },
   
@@ -96,11 +88,9 @@ var saveUserState =  {
         query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
     }
     return query;
-}
+  }
   
-};
-   
-   
+}; //=== End of saveUserState Object // ======= Start Helper Functions
    
 $(function(){
 
