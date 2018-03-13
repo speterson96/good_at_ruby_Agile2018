@@ -78,10 +78,11 @@ var shootProperties = {
 };
 
 // Adding the HUD for the game
-var bulletCounter = Math.floor(bullets / 10); 
-var lifeCounter = Math.floor(lives);
+var bulletCounter = shootProperties.bullets ; 
+var lifeCounter = shipProperties.life;
+console.log("Bullet Counter: " + bulletCounter + " Life Counter: " + lifeCounter);
 userHUD();
-function userHUD() {$(document).ready(function() {
+function userHUD() {$(document).ready(function() { 
   
   for (i=0; i < bulletCounter ; i++) {
     
@@ -92,12 +93,12 @@ function userHUD() {$(document).ready(function() {
   for (i=0; i < lives; i++) {
     
     $('.lives').after("<img src='/assets/player.png' alt='Player' class='life life" + (i + 1) + "'></img>");
-    console.log("Lives: " + lives);
     
   }
-})};
+});} 
 
 console.log("score: ", score);
+
 gameState.prototype = {
     
     preload: function () {
@@ -200,7 +201,7 @@ gameState.prototype = {
         if (this.key_fire.isDown) {
 
             this.fire(shootProperties.bullets);
-            shootProperties.bullets -= 1;
+            
             
         }
     },
@@ -250,8 +251,7 @@ gameState.prototype = {
                     game.physics.arcade.velocityFromRotation(this.shipSprite.rotation, shootProperties.speed, bullet.body.velocity);
                     this.shootInterval = game.time.now + shootProperties.interval;
 
-                    console.log("ammo: ", ammo);
-                    
+                    shootProperties.bullets -= 1;  
                     $(".bullet" + bulletCounter).remove();
                     bulletCounter -=1;
                     
@@ -316,7 +316,6 @@ gameState.prototype = {
 
         game.physics.arcade.velocityFromRotation(randomAngle, randomVelocity, asteroid.body.velocity);
 
-    
     },
 
     resetAsteroids: function () {
@@ -342,7 +341,6 @@ gameState.prototype = {
             this.createAsteroid(x, y);
 
         }
-
     },
 
     asteroidCollision: function (target, asteroid) {
@@ -369,7 +367,7 @@ gameState.prototype = {
 
         console.log("score: ", score, "size: ", size);
 
-        if (target.key = graphicAssets.ship.name) {
+        if (target.key == graphicAssets.ship.name) {
             
             this.destroyShip();
             
@@ -390,25 +388,20 @@ gameState.prototype = {
         if (this.shipLives) {
 
             this.resetShip();
-            
 
         }
-        //TODO add remove life
-            $(".life" + lifeCounter).remove();
-            lifeCounter -= 1;
-            console.log("lost a life! " + lifeCounter);
-
-        console.log(this.shipLives);
+        
+        $(".life" + lifeCounter).remove();
+        lifeCounter -= 1;
+        
+        console.log("You lost a life: " + lifeCounter);
 
     } 
-    
 };
-
-
 
 var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, 'gameDiv');
 game.state.add(states.game, gameState);
 game.state.start(states.game);
-}
+};
 
-game(3, 30, 0, 'normal');
+game(3, 3, 0, 'normal');
