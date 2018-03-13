@@ -1,14 +1,15 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   
   <div id="gameWrapper">
   
   <!-- Going to do everything in javascript using ajax and hit rails methods with ajax as the interface  -->
   
-    
+  <div class="startGame" onclick="saveUserState.startGame();"></div>
+
   <!-- add small leaderboard later -->
     <div id="gameDiv">
     
       
     </div>
-  </div>%>
+  </div>
