@@ -76,6 +76,21 @@ var shootProperties = {
     bullets: bullets
 
 };
+
+// Adding the HUD for the game
+$(document).ready(function() {
+  
+  for (i=0; i < bullets / 10; i++) {
+    $('.bullets').after("<img src='/assets/theHoff.jpg' alt='The Hoff' class='bullet'></img>");
+  }
+  
+  for (i=0; i < lives; i++) {
+    $('.lives').after("<img src='/assets/player.png' alt='The Hoff' class='life'></img>");
+  }
+  
+  
+});
+
 console.log("score: ", score);
 gameState.prototype = {
     
@@ -381,6 +396,8 @@ gameState.prototype = {
     } 
     
 };
+
+
 
 var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, 'gameDiv');
 game.state.add(states.game, gameState);
