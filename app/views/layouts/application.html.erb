@@ -4,7 +4,7 @@
   <title>GoodAtRubyAgile2018</title>
   <%= csrf_meta_tags %>
   
-
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
 
@@ -34,9 +34,15 @@
     </ul>
   </nav>
   
+  <% if current_user %>
   <header class="header">
-      <h1>Astroids Game!</h1>
+      <h1><%= link_to 'ASTEROID GAME', game_url %></h1>
   </header>
+  <% else %>
+  <header class="header">
+      <h1>ASTEROID GAME</h1>
+  </header>
+  <% end %>
   
 <%flash.each do |key, value| %>
   <div class="alert alert-info"><%= value %></div>
