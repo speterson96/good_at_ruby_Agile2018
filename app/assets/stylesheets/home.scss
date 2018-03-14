@@ -69,12 +69,12 @@
   height: 50px;
 }
 
-body {
-  background-color: black;
-  background-image: url(bg2.jpg);
-  background-size: 100% 100%;
-  color: white;
-}
+ body {
+   background-color: black;
+   background-image: url(bg2.jpg);
+   background-size: 100% 100%;
+   color: white;
+ }
 
 header {
   width: 25%;
@@ -146,8 +146,8 @@ footer h4 {
 
 .main {
   width:100%;
-  min-height: 50em;
   margin:auto;
+  min-height: 50em;
 }
 
 .navbar {
@@ -195,15 +195,11 @@ footer h4 {
 }
 
 .omniauth a {
-  
   padding-bottom: 12px;
-  
 }
 
 .omniauth a:hover {
-  
   padding-bottom: 12px;
-  
 }
 
 /* Background Styles 
@@ -240,8 +236,7 @@ footer h4 {
 }
 
 .saveSlot:hover{
-  background-color:rgba(225,225,225, 0.5);
-  cursor:pointer;
+  background-color:rgba(225,225,225, 0.5)
 }
 
 .saveSlot p{
