@@ -16,7 +16,8 @@
   width: 50%;
   height: 50%;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
+  
 }
 
 // Actual game canvas
@@ -24,7 +25,9 @@
   margin-top: 275px;
   border-color: #34d837;
   border-style: solid;
-  
+   margin-top: 275px;
+  margin-left:auto; 
+  margin-right:auto;
 }
 
 body {
@@ -40,9 +43,9 @@ header {
 
 footer {
   /*float: right;*/
+  bottom: 0;
   width: 100%;
   position: absolute;
-  bottom: 0;
   text-align: center;
   color: #fff;
   border-color: black;
@@ -54,16 +57,20 @@ footer {
 
 footer h4 {
   padding: 0 10px;
+  
 }
 
 .leaderboard {
+  text-align: center;
   color: black;
   border-color: black;
   border-style: solid;
   background-color: lightgrey;
   box-shadow: 1px 1px white;
   padding: 10px;
-  margin-top: 5px;
+  margin-top: 20px;
+  margin-left:auto; 
+  margin-right:auto;
   width: 30em;
 }
   
@@ -99,8 +106,10 @@ footer h4 {
 }
 
 .main {
-  width:100%;
-  margin:auto;
+    margin: auto;
+    width: 50%;
+    /*border: 3px solid green;*/
+    padding:  20px 20px;
 }
 
 .navbar {
