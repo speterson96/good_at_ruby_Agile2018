@@ -15,8 +15,7 @@
   width: 50%;
   height: 50%;
   margin: 0 auto;
-  position: absolute;
-  
+  position: relative;
 }
 
 // Actual game canvas
@@ -24,9 +23,7 @@
   margin-top: 275px;
   border-color: #34d837;
   border-style: solid;
-   margin-top: 275px;
-  margin-left:auto; 
-  margin-right:auto;
+  
 }
 //positioning HUD over game
 .gameWrapper {
@@ -72,12 +69,12 @@
   height: 50px;
 }
 
-body {
-  background-color: black;
-  background-image: url(bg2.jpg);
-  background-size: 100% 100%;
-  color: white;
-}
+ body {
+   background-color: black;
+   background-image: url(bg2.jpg);
+   background-size: 100% 100%;
+   color: white;
+ }
 
 header {
   width: 25%;
@@ -92,9 +89,6 @@ header {
 
 footer {
   /*float: right;*/
-  bottom: 0;
-  width: 100%;
-  position: absolute;
   text-align: center;
   color: #fff;
   border-color: black;
@@ -106,20 +100,16 @@ footer {
 
 footer h4 {
   padding: 0 10px;
-  
 }
 
 .leaderboard {
-  text-align: center;
   color: black;
   border-color: black;
   border-style: solid;
   background-color: lightgrey;
   box-shadow: 1px 1px white;
   padding: 10px;
-  margin-top: 20px;
-  margin-left:auto; 
-  margin-right:auto;
+  margin-top: 5px;
   width: 30em;
 }
   
@@ -156,8 +146,8 @@ footer h4 {
 
 .main {
   width:100%;
-  min-height: 50em;
   margin:auto;
+  min-height: 50em;
 }
 
 .navbar {
@@ -205,15 +195,11 @@ footer h4 {
 }
 
 .omniauth a {
-  
   padding-bottom: 12px;
-  
 }
 
 .omniauth a:hover {
-  
   padding-bottom: 12px;
-  
 }
 
 /* Background Styles 
@@ -250,8 +236,7 @@ footer h4 {
 }
 
 .saveSlot:hover{
-  background-color:rgba(225,225,225, 0.5);
-  cursor:pointer;
+  background-color:rgba(225,225,225, 0.5)
 }
 
 .saveSlot p{
