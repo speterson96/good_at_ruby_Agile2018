@@ -1,5 +1,6 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <div class="startGame" onclick="saveUserState.startGame();">Start Game!</div>
   
   <!-- add small leaderboard later -->
   <div id="gameDiv">
@@ -13,5 +14,4 @@
       </div>
       
     </div>
-    <div class="startGame" onclick="saveUserState.startGame();">Start Game!</div>
   </div>
