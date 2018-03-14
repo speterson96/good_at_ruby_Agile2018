@@ -373,7 +373,29 @@ gameState.prototype = {
             this.destroyShip();
             
         }
+
+        if (!this.asteroidGroup.countLiving()) {
+
+            this.nextWave();
+
+        }
+
     },
+
+    nextWave: function() {
+
+        this.asteroidGroup.removeAll(true);
+
+        if (this.asteroidCount < 10) {
+
+            this.asteroidCount += 1;
+
+        }
+
+        this.resetAsteroids();
+
+    },
+
 
     resetShip: function() {
 
