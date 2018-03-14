@@ -1,5 +1,10 @@
 class SaveStateController < ApplicationController
+  before_action :set_title
   before_action :index 
+  
+  def set_title
+    @title = "Saves"
+  end
   
   # GET /scores
   # GET /scores.json
@@ -25,6 +30,5 @@ class SaveStateController < ApplicationController
       end 
     end
   end
-  
-  
+    
 end
