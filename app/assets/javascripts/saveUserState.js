@@ -24,19 +24,13 @@ var saveUserState =  {
         user_score : score, 
         user_difficulty : difficulty
         
-      },
-      
-      success: function(){
-        
-        console.log('Saved Successfully :)');
-        
-      },
-      
-       error: function(xhr,status,error){
-         
+      },      
+      success: function(){      
+        console.log('Saved Successfully :)');      
+      },    
+       error: function(xhr,status,error){      
          console.log(xhr);
-         alert(error);
-         
+         alert(error);      
       }
     });
 	 },
@@ -47,11 +41,9 @@ var saveUserState =  {
       url: "/sendScores",
       type: "get",
       data: {user_score: score},
-      success: function(){
-        
+      success: function(){     
         console.log('Saved Successfully :)');
-      },
-      
+      },  
        error: function(xhr,status,error){
          console.log(xhr);
          alert(error); 
@@ -83,7 +75,8 @@ var saveUserState =  {
     }
     
     document.querySelector('.startGame').style.display="none";
-       
+    document.querySelector('.gameWrapper').style.display="block"; 
+          
   },
   
   parseQuery: function(queryString) {
@@ -110,7 +103,7 @@ $(function(){
 
       var score, bullets, lives, difficulty; 
         score = $(this).children(".score").text();
-        lives = $(this).children(".lives").text();
+        lives = $(this).children("._lives").text();
         bullets = $(this).children(".bullets").text();
         difficulty = $(this).children(".difficulty").text();
         
