@@ -1,4 +1,3 @@
-
 var saveUserState =  {
 	
 	userLives : 0,
@@ -19,20 +18,27 @@ var saveUserState =  {
       url: "/sendSaveState",
       type: "get",
       data: {
+        
         user_lives : lives, 
         user_bullets : bullets, 
         user_score : score, 
         user_difficulty : difficulty
+        
       },
+      
       success: function(){
+        
         console.log('Saved Successfully :)');
+        
       },
+      
        error: function(xhr,status,error){
+         
          console.log(xhr);
          alert(error);
+         
       }
     });
-		 
 	 },
 	
 	sendUserScore : function(score) {
@@ -42,14 +48,15 @@ var saveUserState =  {
       type: "get",
       data: {user_score: score},
       success: function(){
+        
         console.log('Saved Successfully :)');
       },
+      
        error: function(xhr,status,error){
          console.log(xhr);
          alert(error); 
       }
     });
-		 
   },
   
   startGameFromSave : function(lives, bullets, score, difficulty){   
@@ -57,7 +64,6 @@ var saveUserState =  {
     if(confirm("Are you sure you want to load this save?")){
       window.location="/game?score=" + score + "&bullets=" + bullets + "&lives=" + lives + "&diff=" + difficulty + "&save=t" ;
     }
-       
   },
   
   
@@ -65,7 +71,7 @@ var saveUserState =  {
       
     if (saveUserState.parseQuery(location.search).save !== 't'){
             
-             game(3, 30, 0, 'normal'); //These values are the defaults for lauching the game.
+             game(3, 3, 0, 'normal'); //These values are the defaults for lauching the game.
              
     } else {
       
@@ -84,12 +90,15 @@ var saveUserState =  {
     var query = {};
     var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
     for (var i = 0; i < pairs.length; i++) {
+      
         var pair = pairs[i].split('=');
         query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+        
     }
+    
     return query;
+    
   }
-  
 }; //=== End of saveUserState Object // ======= Start Helper Functions
    
 $(function(){
@@ -109,7 +118,6 @@ $(function(){
    
     }, false);
 }
-  
 });;
 
    

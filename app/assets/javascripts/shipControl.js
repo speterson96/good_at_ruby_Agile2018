@@ -77,7 +77,29 @@ var shootProperties = {
     bullets: bullets
 
 };
+
+// Adding the HUD for the game
+var bulletCounter = shootProperties.bullets ; 
+var lifeCounter = shipProperties.life;
+console.log("Bullet Counter: " + bulletCounter + " Life Counter: " + lifeCounter);
+userHUD();
+function userHUD() {$(document).ready(function() { 
+  
+  for (i=0; i < bulletCounter ; i++) {
+    
+    $('.bullets').after("<img src='/assets/theHoff.jpg' alt='The Hoff' class='bullet bullet" + (i + 1)  + "'></img>");
+    
+  }
+  
+  for (i=0; i < lives; i++) {
+    
+    $('.lives').after("<img src='/assets/player.png' alt='Player' class='life life" + (i + 1) + "'></img>");
+    
+  }
+});} 
+
 console.log("score: ", score);
+
 gameState.prototype = {
     
     preload: function () {
@@ -180,10 +202,9 @@ gameState.prototype = {
         if (this.key_fire.isDown) {
 
             this.fire(shootProperties.bullets);
-            shootProperties.bullets -= 1;
-
+            
+            
         }
-        
     },
     
     checkBoundaries: function (sprite) {
@@ -208,7 +229,6 @@ gameState.prototype = {
             sprite.y =0;
             
         }
-        
     },
 
     fire: function (ammo) {
@@ -232,14 +252,13 @@ gameState.prototype = {
                     game.physics.arcade.velocityFromRotation(this.shipSprite.rotation, shootProperties.speed, bullet.body.velocity);
                     this.shootInterval = game.time.now + shootProperties.interval;
 
-                    console.log("ammo: ", ammo);
-
+                    shootProperties.bullets -= 1;  
+                    $(".bullet" + bulletCounter).remove();
+                    bulletCounter -=1;
+                    
                 }
-
             }
-
         }
-
     },
 
     asteroidSize: function() {
@@ -261,7 +280,6 @@ gameState.prototype = {
             return graphicAssets.asteroidLarge.name;
     
         }
-    
     },
 
    asteroidAngularVelocity: function() {
@@ -299,7 +317,6 @@ gameState.prototype = {
 
         game.physics.arcade.velocityFromRotation(randomAngle, randomVelocity, asteroid.body.velocity);
 
-    
     },
 
     resetAsteroids: function () {
@@ -325,7 +342,6 @@ gameState.prototype = {
             this.createAsteroid(x, y);
 
         }
-
     },
 
     asteroidCollision: function (target, asteroid) {
@@ -352,12 +368,11 @@ gameState.prototype = {
 
         console.log("score: ", score, "size: ", size);
 
-        if (target.key = graphicAssets.ship.name) {
+        if (target.key == graphicAssets.ship.name) {
             
             this.destroyShip();
-
+            
         }
-
     },
 
     resetShip: function() {
@@ -376,17 +391,18 @@ gameState.prototype = {
             this.resetShip();
 
         }
-
-        console.log(this.shipLives);
+        
+        $(".life" + lifeCounter).remove();
+        lifeCounter -= 1;
+        
+        console.log("You lost a life: " + lifeCounter);
 
     } 
-    
 };
 
 var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, 'gameDiv');
 game.state.add(states.game, gameState);
 game.state.start(states.game);
-}
-
+};
 
 document.querySelector('.startGame').style.display="block";
