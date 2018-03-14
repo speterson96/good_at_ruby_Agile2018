@@ -117,7 +117,7 @@ gameState.prototype = {
         this.initGraphics();
         this.initPhysics();
         this.initKeyboard();
-        this.createAsteroid();
+        this.resetAsteroids();
         
     },
 
@@ -320,8 +320,8 @@ gameState.prototype = {
     },
 
     resetAsteroids: function () {
-
-        for (var i =0; i < this.asteroidCount; i++) {
+        console.log(this.asteroidCount);
+        for (var i =0; i < 3; i++) {
 
             var side = Math.round(Math.random());
             var x;
