@@ -1,7 +1,7 @@
 //Used to test ajax.
 //saveUserState.sendUserScore(1000);
 //Params: lives, bullets, score, difficulty
-//saveUserState.sendUserSaveState(2, 70, 1337, 'hard');
+saveUserState.sendUserSaveState(2, 7, 1337, 'hard');
 
 game = function(lives, bullets, score, difficulty) {
 
@@ -33,7 +33,8 @@ var graphicAssets = {
     bullet:{URL:'/assets/theHoff.jpg', name:'bullet'},
     asteroidMedium:{URL:'/assets/medium.jpg', name:'medium'},
     asteroidSmall:{URL:'/assets/asteroid-small.png', name:'small'},
-    asteroidLarge:{URL:'/assets/asteroid-big.png', name:'large'}
+    asteroidLarge:{URL:'/assets/asteroid-big.png', name:'large'},
+    ammoRefill:{URL: '/assets/theHoff.jpg', name:'refill'}
     
 };
 
@@ -65,6 +66,8 @@ var gameState = function (game){
     this.asteroidCount = 3;
 
     this.shipLives = shipProperties.life;
+
+    this.refillAmmo;
     
 };
 
@@ -82,6 +85,7 @@ var shootProperties = {
 var bulletCounter = shootProperties.bullets ; 
 var lifeCounter = shipProperties.life;
 console.log("Bullet Counter: " + bulletCounter + " Life Counter: " + lifeCounter);
+console.log("Total bullets: " + shootProperties.bullets);
 userHUD();
 function userHUD() {$(document).ready(function() { 
   
@@ -91,12 +95,54 @@ function userHUD() {$(document).ready(function() {
     
   }
   
-  for (i=0; i < lives; i++) {
+  for (i=0; i < lifeCounter; i++) {
     
     $('.lives').after("<img src='/assets/player.png' alt='Player' class='life life" + (i + 1) + "'></img>");
     
   }
-});} 
+});}
+
+function resetHUD() {
+  $(".bullet").remove();
+  $(".life").remove();
+  bulletCounter = shootProperties.bullets;
+  userHUD();
+  
+}
+
+function addBulletHUD() {
+  $('.bullets').after("<img src='/assets/theHoff.jpg' alt='The Hoff' class='bullet bullet" + (bulletCounter + 1)  + "'></img>");
+  shootProperties.bullets += 1;
+  console.log("Total bullets: " + shootProperties.bullets);
+  bulletCounter +=1;
+}
+
+function removeBulletHUD() {
+  shootProperties.bullets -= 1;  
+  $(".bullet" + bulletCounter).remove();
+  bulletCounter -=1;
+}
+
+function addLifeHUD() {
+  
+}
+
+function removeLifeHUD() {
+  $(".life" + lifeCounter).remove();
+  lifeCounter -= 1;
+}
+
+function removeHUD() {
+  shipProperties.life = 0;
+  shootProperties.bullets = 0;
+  $(".bullet").remove();
+  $(".life").remove();
+  $(".gameOver").show();
+  $(".gameOver").append("<br>Score: " + score);
+  
+  
+}
+
 
 console.log("score: ", score);
 
@@ -109,7 +155,8 @@ gameState.prototype = {
         game.load.image(graphicAssets.asteroidSmall.name, graphicAssets.asteroidSmall.URL);
         game.load.image(graphicAssets.asteroidMedium.name, graphicAssets.asteroidMedium.URL);
         game.load.image(graphicAssets.asteroidLarge.name, graphicAssets.asteroidLarge.URL);
-
+        game.load.image(graphicAssets.ammoRefill.name, graphicAssets.ammoRefill.URL);
+    
     },
     
     create: function () {
@@ -129,7 +176,8 @@ gameState.prototype = {
 
         game.physics.arcade.overlap(this.shootGroup, this.asteroidGroup, this.asteroidCollision, null, this);
         game.physics.arcade.overlap(this.shipSprite, this.asteroidGroup, this.asteroidCollision, null, this);
-    
+        game.physics.arcade.overlap(this.refillAmmo, this.shipSprite, this.refillAmmo, null, this);
+
     },
     
     initGraphics: function () {
@@ -140,6 +188,8 @@ gameState.prototype = {
         
         this.shootGroup = game.add.group();
         this.asteroidGroup = game.add.group();
+
+        this.refillAmmo = game.add.sprite()
     
     },
     
@@ -252,9 +302,8 @@ gameState.prototype = {
                     game.physics.arcade.velocityFromRotation(this.shipSprite.rotation, shootProperties.speed, bullet.body.velocity);
                     this.shootInterval = game.time.now + shootProperties.interval;
 
-                    shootProperties.bullets -= 1;  
-                    $(".bullet" + bulletCounter).remove();
-                    bulletCounter -=1;
+                    removeBulletHUD(); // TODO TRIAL
+                    
                     
                 }
             }
@@ -363,8 +412,10 @@ gameState.prototype = {
 
             score += 30;
             size = "large";
-
+            
         }
+        
+        addBulletHUD();//TODO Trial added shootProperties.bullets +=1 to above
 
         console.log("score: ", score, "size: ", size);
 
@@ -392,7 +443,7 @@ gameState.prototype = {
 
         }
 
-        this.resetAsteroids();
+        this.resetAsteroids(); 
 
     },
 
@@ -407,19 +458,27 @@ gameState.prototype = {
     destroyShip: function () {
 
         this.shipLives -= 1;
+        resetHUD();
 
         if (this.shipLives) {
 
             this.resetShip();
+            removeLifeHUD();//TODO Trial
+
+        }
+
+        if (!this.shipLives) {
+            removeHUD();
+            saveUserState.sendUserScore(score);
 
         }
         
-        $(".life" + lifeCounter).remove();
-        lifeCounter -= 1;
+        
         
         console.log("You lost a life: " + lifeCounter);
 
-    } 
+    }
+
 };
 
 var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, 'gameDiv');
